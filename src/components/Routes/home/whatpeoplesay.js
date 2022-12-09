@@ -9,7 +9,6 @@ import EnjoyLife from '../../../images/wellness/happyguy.jpg'
 const Whatpeoplesay=()=> {
   return (
     <div className=''>
-        <Image src={bgCorp}></Image>
     <div className='mx-auto my-5 p-4 text-center' style={{backgroundImage:'url("../../../images/WhatPeoplesay/bgcorporate2.jpg")'}}>
         <h2>WHAT PEOPLE SAY</h2>
         <CardGroup className=''>
