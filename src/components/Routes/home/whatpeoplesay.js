@@ -31,10 +31,10 @@ const Whatpeoplesay=()=> {
         <Card className='shadow-lg'>
             <Card.Img variant="top" src={Model2} className='opacity-50' style={{objectFit:'cover'}}/>
             <Card.ImgOverlay>
-            <Card.Title className='fs-4 fw-bold'>Exercise</Card.Title>
+            <Card.Title className='fs-4 fw-bold'>Arun Maurya</Card.Title>
             <Card.Text className='fs-5 p-3' style={{overflowY:'auto',overflowX:'hidden'}}>
-            The Yoga & meditation gives a positive Start to the day & also has helped with my
-            lower back ache.
+            Never Thought A 45 Mins Zumba Session can me feel Stress free &
+                Happy,  I keep Looking Forward for Wedneday Zumba Sessions
             </Card.Text>
             <h1>"</h1>
             </Card.ImgOverlay>
@@ -44,11 +44,9 @@ const Whatpeoplesay=()=> {
         <Card className='shadow-lg'>
             <Card.Img variant="top" src={Model1} className='opacity-50' style={{objectFit:'cover'}}/>
             <Card.ImgOverlay>
-            <Card.Title className='fs-4 fw-bold'>Sleep</Card.Title>
+            <Card.Title className='fs-4 fw-bold'>Ram Shrasti</Card.Title>
             <Card.Text className='fs-5 p-3' style={{overflowY:'auto',overflowX:'hidden'}}>
-                This is a wider card with supporting text below as a natural lead-in
-                to additional content. This card has even longer content than the
-                first to show that equal height action.
+            Exercise helped me overcome anxiety & gave a positive start to the journey of my life.
             </Card.Text>
             <h1>"</h1>
             </Card.ImgOverlay>

@@ -14,7 +14,7 @@ const Wellness=()=> {
       <h2>WELLNESS MAKES SENSE</h2>
       <p>Trained exercise & diet is much needed in this stressed & busy world to ensure that health remains perfect. </p>
       <CardGroup className='mx-2'>
-      <Card className='mx-3'>
+      <Card className='mx-3 shadow-lg'>
         <Card.Img variant="top" src={BalancedDiet} />
         <Card.Body>
           <Card.Title>Healthy Diet</Card.Title>
@@ -23,7 +23,7 @@ const Wellness=()=> {
           </Card.Text>
         </Card.Body>
       </Card>
-      <Card className='mx-3'>
+      <Card className='mx-3 shadow-lg'>
         <Card.Img variant="top" src={Exercise} />
         <Card.Body>
           <Card.Title>Exercise</Card.Title>
@@ -32,7 +32,7 @@ const Wellness=()=> {
           </Card.Text>
         </Card.Body>
       </Card>
-      <Card className='mx-3'>
+      <Card className='mx-3 shadow-lg'>
         <Card.Img variant="top" src={Sleep} />
         <Card.Body>
           <Card.Title>Sleep</Card.Title>
@@ -41,7 +41,7 @@ const Wellness=()=> {
           </Card.Text>
         </Card.Body>
       </Card>
-      <Card className='mx-3'>
+      <Card className='mx-3 shadow-lg'>
         <Card.Img variant="top" src={EnjoyLife} style={{maxheight:'200px'}}/>
         <Card.Body>
           <Card.Title>Enjoy Life</Card.Title>
