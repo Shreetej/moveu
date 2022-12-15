@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './components/Routes/home';
+import Home from './components/Routes/home/home';
 import About from './components/Routes/about';
 import Contact from './components/Routes/contact';
 import DigProg from './components/Routes/digProg';
@@ -13,8 +13,7 @@ import Footer from './components/footer';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 function App() {

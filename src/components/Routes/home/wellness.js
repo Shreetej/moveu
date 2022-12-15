@@ -1,4 +1,4 @@
-import {React,useState} from 'react'
+import {React} from 'react'
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import BalancedDiet from '../../../images/wellness/healthydiet2.jpeg'
@@ -7,20 +7,19 @@ import Sleep from '../../../images/wellness/sleep.jpg'
 import EnjoyLife from '../../../images/wellness/happyguy.jpg'
 
 const Wellness=()=> {
-  const [cardDetails, setcardDetails] = useState();
+
   return (
     <>
     <div className='container my-3 text-center' >
       <h2>WELLNESS MAKES SENSE</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+      <p>Trained exercise & diet is much needed in this stressed & busy world to ensure that health remains perfect. </p>
       <CardGroup className='mx-2'>
       <Card className='mx-3'>
         <Card.Img variant="top" src={BalancedDiet} />
         <Card.Body>
           <Card.Title>Healthy Diet</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+          A healthy diet is essential for good health and nutrition. It protects you against many chronic noncommunicable diseases, such as heart disease, diabetes and cancer.
           </Card.Text>
         </Card.Body>
       </Card>
@@ -29,8 +28,7 @@ const Wellness=()=> {
         <Card.Body>
           <Card.Title>Exercise</Card.Title>
           <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.
+          Research shows that physical activity can also boost self-esteem, mood, sleep quality and energy, as well as reducing your risk of stress, clinical depression
           </Card.Text>
         </Card.Body>
       </Card>
@@ -39,9 +37,7 @@ const Wellness=()=> {
         <Card.Body>
           <Card.Title>Sleep</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
+          Adequate sleep helps with hormonal balance. That keeps your heart healthy, reduces stress, and helps keep blood sugar consistent. It also reduces stress, prevents inflammation, and helps control weight.
           </Card.Text>
         </Card.Body>
       </Card>
@@ -50,9 +46,7 @@ const Wellness=()=> {
         <Card.Body>
           <Card.Title>Enjoy Life</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
+            Being with companions & enjoying what you do improves your mood. Thus increase ability to focus instead of being stressed.
           </Card.Text>
         </Card.Body>
       </Card>
