@@ -11,7 +11,7 @@ const Footer=()=> {
   return (
     <>
     <Container fluid='true' className='bg-dark' /*style={{backgroundColor:'#222a47'}}*/>
-      <footer className='pt-5'>
+      <footer className='pt-3'>
       <Row className='container mx-auto'>
       <Col xs={6} md={2} className='mb-2'>
         <h4 className='p-3 text-light'>SERVICES</h4>
@@ -57,7 +57,7 @@ const Footer=()=> {
         </Nav>
 
       </Col>
-      <Col xs={6} md={5} className='mb-2 offset-1'>
+      <Col xs={5} md={5} className='mb-2 offset-1'>
         <Form className='text-light'>
           <h4 className='text-center py-3'>Subscribe to our newsletter</h4>
           <p>Monthly digest of what's new and exciting from us</p>
@@ -67,10 +67,9 @@ const Footer=()=> {
             <Button primary={true}>Subscribe</Button>
           </div>
         </Form>
-        
       </Col>
       </Row>
-      <div className='container d-flex flex-column flex-sm-row justify-content-between py-4 border-top text-light'>
+      <div className='container d-flex flex-column flex-sm-row justify-content-between pt-4 pb-2 border-top text-light'>
       <p>@2022 Move You, Inc. All rights reserved.</p>
       <ul className='list-unstyled d-flex'>
         <li class='ms-3'>
