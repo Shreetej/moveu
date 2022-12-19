@@ -27,7 +27,7 @@ const Home=()=> {
           style={{backgroundAttachment:'fixed'}}
         />
         <Carousel.Caption style={{position:'absolute', top:'8px',left:'16px'}}>
-          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
+          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>"The Best Investment you could ever make is in you own health"</h2>
         </Carousel.Caption>
         <Carousel.Caption>
           <Button as={Link} className='opacity-75' to='/contact'>Schedule a Demo</Button>
@@ -41,7 +41,7 @@ const Home=()=> {
           style={{backgroundAttachment:'fixed'}}
         />
         <Carousel.Caption style={{position:'absolute', top:'8px',left:'16px'}}>
-          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
+          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>“Those who think they have not time for bodily exercise will sooner or later have to find time for illness.” - Edward Stanley</h2>
         </Carousel.Caption>
         <Carousel.Caption>
           <Button className='opacity-75'>Schedule a Demo</Button>
@@ -55,7 +55,7 @@ const Home=()=> {
           style={{backgroundAttachment:'fixed'}}
         />
         <Carousel.Caption style={{position:'absolute', top:'8px',left:'16px'}}>
-          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
+          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>"Success is what comes after your stop making excuses." –Luis Galarza</h2>
         </Carousel.Caption>
         <Carousel.Caption>
           <Button className='opacity-75'>Schedule a Demo</Button>
@@ -69,7 +69,8 @@ const Home=()=> {
           style={{backgroundAttachment:'fixed'}}
         />
         <Carousel.Caption style={{position:'absolute', top:'8px',left:'16px'}}>
-          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
+          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>"Train hard, turn up, run your best, and the rest will take care of itself."
+          </h2>
         </Carousel.Caption>
         <Carousel.Caption>
           <Button className='opacity-75'>Schedule a Demo</Button>
@@ -83,7 +84,7 @@ const Home=()=> {
           style={{backgroundAttachment:'fixed'}}
         />
         <Carousel.Caption style={{position:'absolute', top:'8px',left:'16px'}}>
-          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
+          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>Life begins at the end of your comfort zone.</h2>
         </Carousel.Caption>
         <Carousel.Caption>
           <Button className='opacity-75' href='/contact'>Schedule a Demo</Button>
@@ -97,7 +98,7 @@ const Home=()=> {
           style={{backgroundAttachment:'fixed'}}
         />
         <Carousel.Caption style={{position:'absolute', top:'8px',left:'16px'}}>
-          <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
+          {/* <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>"I hate every minute of training. But I said, don’t quit. Suffer now and live the rest of your life as a champion." -Mohammed Ali</h2> */}
         </Carousel.Caption>
         <Carousel.Caption>
           <Button className='opacity-75'>Schedule a Demo</Button>

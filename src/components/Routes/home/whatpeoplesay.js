@@ -17,12 +17,12 @@ const Whatpeoplesay=()=> {
         <Col sm={6} md={3} className='m-3'>
         <Card className='shadow-lg'>
             <Card.Img variant='top' src={Model3} className='opacity-50' style={{objectFit:'contain'}}/>
-            <Card.ImgOverlay className=''>
+            <Card.ImgOverlay className='' >
                 <Card.Title className='fs-4 fw-bold text-center' >Krishna Godwani<p></p></Card.Title>
                 <Card.Subtitle className='text-center fs-5'>Ex. Navy Retired Captain</Card.Subtitle>
-                <Card.Text className='text-justify fs-6 p-3' style={{overflowY:'',overflowX:'hidden'}}>
-                ​I started with Moveu 3 years ago because i was  having severe back pain and was facing difficulties in balancing myself. After 3 months i was pain-free and felt more strong and balanced while walking. 
-                I havnt missed the class even once , because it's for me and Vikas makes it so interesting that you don't wanna miss a single day.
+                <Card.Text className='text-justify fs-6 p-3' style={{overflowY:'auto',overflowX:'hidden'}}>
+                ​I started with Moveu 3 years ago because i was having severe back pain and was facing difficulties in balancing myself. After 3 months i was pain-free and felt more strong and balanced while walking. 
+                I havent missed the class even once , because it's for me and Vikas makes it so interesting that you don't wanna miss a single day.
                 </Card.Text>
                 <Card.Text className='fs-1 text-center'>"</Card.Text>
             </Card.ImgOverlay>
