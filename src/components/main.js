@@ -22,6 +22,9 @@ const NavScroll=()=> {
               <Nav.Link as={Link} className='mx-2' to='/'>HOME</Nav.Link>
             </Nav.Item>
             <Nav.Item>
+              <Nav.Link as={Link} className='mx-2' to='/about'>ABOUT</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
               <NavDropdown title="SERVICES" className='mx-2' menuVariant='dark' id="servicesScrollingDropdown">
                 <NavDropdown.Item as={Link} to="/humanengagement">Human Engagement</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/facilityMgt">Facility Design & Management</NavDropdown.Item>
@@ -29,14 +32,12 @@ const NavScroll=()=> {
               </NavDropdown>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} className='mx-2' to='/about'>ABOUT</Nav.Link>
+              <Nav.Link as={Link} className='mx-2' to='/blog'>BLOG</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link as={Link} className='mx-2' to='/contact'>CONTACT</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link as={Link} className='mx-2' to='/blog'>BLOG</Nav.Link>
-            </Nav.Item>
+
             {/* <Nav.Item>
             <Nav.Link as={Link} className='' to='/login'>LOGIN</Nav.Link>
             </Nav.Item> */}

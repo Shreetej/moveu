@@ -6,7 +6,7 @@ import DigProg from './components/Routes/digProg';
 import FacilityMgt from './components/Routes/facilityMgt';
 import Login from './components/Routes/login';
 import HumanEngagement from './components/Routes/humanEngagement';
-import Blog from './components/Routes/blog';
+import Blog from './components/Routes/blog/blog';
 import Main from './components/main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer';

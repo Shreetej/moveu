@@ -1,11 +1,29 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { Container, Form, FormGroup, FormLabel } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import {ImLocation} from 'react-icons/im'
 import {FiPhoneCall, FiMail} from 'react-icons/fi'
 
-const contact = () => {
+const Contact = () => {
+
+  const [data, setData] = useState({
+    name:'',
+    email:'',
+    company:'',
+    phone:'',
+    message:''
+  });
+
+  const submitForm=(event)=>{
+    event.preventDefault()
+    console.log(data)
+  }
+
+  const handleChange=(event,property)=>{
+    setData({...data,[property]:event.target.value})
+  }
+
   return (
     <div>
       <Container className='shadow-lg rounded-3 mt-5 mb-5'>
@@ -13,18 +31,18 @@ const contact = () => {
           <Col md={8} className=''>
             <div className='bg-white form h-100 p-5'>
             <h3 className='text-center'>Send us a message</h3>
-              <Form className='mb-5'>
+              <Form onSubmit={submitForm} className='mb-5'>
                 <Row className='p-2'>
                   <Col md={6}>
                     <FormGroup md={5}>
                         <FormLabel>Name *</FormLabel>
-                        <Form.Control required type='text' placeholder='Your name' name='name' id='name'></Form.Control>
+                        <Form.Control required type='text' placeholder='Your name' name='name' id='name' onChange={(e)=>handleChange(e,'name')}></Form.Control>
                     </FormGroup>
                   </Col>
                   <Col md={6}>
                     <FormGroup md={5}>
                         <FormLabel>Email *</FormLabel>
-                        <Form.Control required type='email' placeholder='Your email' name='email' id='email'></Form.Control>
+                        <Form.Control required type='email' placeholder='Your email' name='email' id='email' onChange={(e)=>handleChange(e,'email')}></Form.Control>
                     </FormGroup>
                   </Col>
                 </Row>
@@ -32,13 +50,13 @@ const contact = () => {
                   <Col md={6}>
                     <FormGroup md={5}>
                         <FormLabel>Phone *</FormLabel>
-                        <Form.Control required type='input' placeholder='Your number' name='phone' id='phone'></Form.Control>
+                        <Form.Control required type='input' placeholder='Your number' name='phone' id='phone' onChange={(e)=>handleChange(e,'phone')}></Form.Control>
                     </FormGroup>
                   </Col>
                   <Col md={6}>
                     <FormGroup md={5}>
                         <FormLabel>Company</FormLabel>
-                        <Form.Control type='text' placeholder='Company name' name='company' id='company'></Form.Control>
+                        <Form.Control type='text' placeholder='Company name' name='company' id='company' onChange={(e)=>handleChange(e,'company')}></Form.Control>
                     </FormGroup>
                   </Col>
                 </Row>
@@ -46,7 +64,7 @@ const contact = () => {
                   <Col md={12}>
                     <FormGroup md={5}>
                         <FormLabel>Message *</FormLabel>
-                        <Form.Control required as='textarea' cols={30} rows={4} placeholder='Write your message' name='message' id='message'></Form.Control>
+                        <Form.Control required as='textarea' cols={30} rows={4} placeholder='Write your message' name='message' id='message' onChange={(e)=>handleChange(e,'message')}></Form.Control>
                     </FormGroup>
                   </Col>
                 </Row>
@@ -86,4 +104,4 @@ const contact = () => {
   )
 }
 
-export default contact
+export default Contact

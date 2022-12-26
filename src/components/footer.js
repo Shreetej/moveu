@@ -62,9 +62,9 @@ const Footer=()=> {
           <h4 className='text-center py-3'>Subscribe to our newsletter</h4>
           <p>Monthly digest of what's new and exciting from us</p>
           <div className='d-flex flex-row w-100 gap-2'>
-            <label for="newsletter" className='visually-hidden'>Email Address</label>
+            <label htmlFor="newsletter" className='visually-hidden'>Email Address</label>
             <input id='newsletter' type='text' className='form-control' placeholder='Email address'></input>
-            <Button primary={true}>Subscribe</Button>
+            <Button variant='primary'>Subscribe</Button>
           </div>
         </Form>
       </Col>
@@ -72,22 +72,22 @@ const Footer=()=> {
       <div className='container d-flex flex-column flex-sm-row justify-content-between pt-4 pb-2 border-top text-light'>
       <p>@2022 Move You, Inc. All rights reserved.</p>
       <ul className='list-unstyled d-flex'>
-        <li class='ms-3'>
+        <li className='ms-3'>
           <Nav.Link href='https://www.twitter.com'>
             <BsTwitter/>
           </Nav.Link>
         </li>
-        <li class='ms-3'>
+        <li className='ms-3'>
           <Nav.Link href='https://www.instagram.com'>
             <BsInstagram/>
           </Nav.Link>
         </li>
-        <li class='ms-3'>
+        <li className='ms-3'>
           <Nav.Link href='https://www.facebook.com'>
             <BsFacebook/>
           </Nav.Link>
         </li>
-        <li class='ms-3'>
+        <li className='ms-3'>
           <Nav.Link href='https://wa.me/+919911872072'>
             <BsWhatsapp/>
           </Nav.Link>
