@@ -18,6 +18,7 @@ const Contact = () => {
   const submitForm=(event)=>{
     event.preventDefault()
     console.log(data)
+    
   }
 
   const handleChange=(event,property)=>{
