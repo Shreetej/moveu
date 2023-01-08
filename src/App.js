@@ -11,6 +11,7 @@ import Main from './components/main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import {
   BrowserRouter as Router,
   Routes,
@@ -38,7 +39,7 @@ function App() {
     <div className="App">
       {/* <Navigation/> */}
       <Router>
-        <Main/>
+        <Main/>      
         <ToastContainer position='top-center'/>
         <Routes>
           <Route path='/' element={<Home/>}/>

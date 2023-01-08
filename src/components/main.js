@@ -4,10 +4,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {Link} from 'react-router-dom';
 import { getCurrentUser, logout } from './services/user-service';
+import { useState } from 'react';
 
 const UserButton = () =>{
-  return (
-            <NavDropdown title={getCurrentUser('name')} className='mx-2' menuVariant='dark' id="servicesScrollingDropdown">
+  const [userName, setuserName] = useState("Shreetej")
+  return (            
+            <NavDropdown title={userName} className='mx-2' menuVariant='dark' id="servicesScrollingDropdown">
                 <NavDropdown.Item as={Link} to="/user/dashboard">USER DASHBOARD</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="" onClick={logout}>LOGOUT</NavDropdown.Item>
             </NavDropdown>
@@ -59,8 +61,6 @@ const NavScroll=()=> {
           </Nav>
         </Navbar.Collapse>
         </Container>
-
-        
     </Navbar>
   );
 }

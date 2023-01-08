@@ -69,7 +69,7 @@ const Contact = () => {
                     </FormGroup>
                   </Col>
                 </Row>
-                <Row>
+                <Row >
                   <Col md={4}>
                     <FormGroup md={5}>
                       <Form.Control type='submit' value={'Send Message'} className='btn rounded-0 bg-dark text-light mt-4 py-2 px-4' style={{backgroundColor:'#222a47'}}></Form.Control>
@@ -86,7 +86,7 @@ const Contact = () => {
               <ul className='list-unstyled p-2'>
                 <li className='d-flex p-2'>
                   <span className='mr-3'><ImLocation/></span>
-                  <span className='text mx-2'>9757 Aspen Lane South Richmond Hill, NY 11419</span>
+                  <span className='text mx-2'>C-228, Basement, C-block, Greater Kailash I, New Delhi 110048</span>
                 </li>
                 <li className='d-flex p-2'>
                   <span className='mr-3'><FiPhoneCall/></span>

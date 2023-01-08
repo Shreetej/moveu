@@ -1,8 +1,9 @@
 import React from 'react'
 import { Button, Card, Col, Container, FormControl, FormText, Row } from 'react-bootstrap';
 import { useState } from 'react';
-import { login } from '../services/user-service';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../services/user-service';
+import { ToastContainer } from 'react-toastify';
 
 const Login=()=> {
 
@@ -24,21 +25,20 @@ const Login=()=> {
     })
   }
 
-  const submitLogin = (event)=>{
+  const submitLogin = async (event)=>{
     event.preventDefault()
     console.log(loginDetail);
-    login(loginDetail).then((response)=>{
-      console.log("success log")
-      navigate("/user/dashboard")
-      console.log(response)
-    }).catch((error)=>{
-      console.log(error)
-      console.log("Error log")
-    })
+    let user = await login(loginDetail)
+    console.log("In Login: user ="+user)
+    if(user!=null){
+      console.log(user)
+      navigate("/user/dashboard",{state:user})
+    }
   }
  
   return (
     <div style={{background: 'linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))'}}>
+      {/* <ToastContainer/> */}
       <section className='vh-80'>
         <Container className='py-3'>
           <Row  className='d-flex justify-content-center align-items-center'>
