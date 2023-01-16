@@ -1,8 +1,15 @@
 import {Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import React from 'react'
+import {React} from 'react'
 import { Form } from "react-bootstrap";
 
-const Userleftsidebar = () => {
+const Userleftsidebar = (props) => {
+
+  const category = ()=>{
+    props.post.map((e)=>
+    <MenuItem key={e._id}>e.category</MenuItem>
+    )
+  }
+  // console.log(props.post.map((e)=>e.category))
   return (
     <div>        
         <Sidebar className="mt-3">
@@ -16,14 +23,11 @@ const Userleftsidebar = () => {
         </Form>
             <Menu>
                 <SubMenu label="Categories">
-                    <MenuItem>Fashion</MenuItem>
-                    <MenuItem>Travel</MenuItem>
-                    <MenuItem>Food</MenuItem>
-                    <MenuItem>Photography</MenuItem>
+                  {/* console.log(post) */}
+                  {/* {props.post.map((post)=><MenuItem key={post._id}>{post.category}</MenuItem>)}; */}
+                  {category}
                 </SubMenu>
                 <SubMenu label="Most Popular articles">
-                    <MenuItem></MenuItem>
-                    <MenuItem></MenuItem>
                 </SubMenu>
             </Menu>
         </Sidebar>

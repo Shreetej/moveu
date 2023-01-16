@@ -1,17 +1,33 @@
+import {React, useContext} from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {Link} from 'react-router-dom';
-import { getCurrentUser, logout } from './services/user-service';
-import { useState } from 'react';
+import { logout, isLoggedIn } from './services/user-service';
+import { useState, useEffect } from 'react';
+import userContext from '../context/posts/UserContext';
 
-const UserButton = () =>{
-  const [userName, setuserName] = useState("Shreetej")
+const UserButton = (props) =>{
+  // const [userName, setuserName] = useState("")
+  const context = useContext(userContext);
+  const {user, setuser} = context;
+
+  // useEffect(() => {
+  //   let user = isLoggedIn()
+  //   console.log(user)
+  //   setuserName(user)
+  // let user = props
+  function logoutUser(){
+    props.setuser(null)
+    // props.setlogin(false)
+    logout()
+  }
+  // }, [])
   return (            
-            <NavDropdown title={userName} className='mx-2' menuVariant='dark' id="servicesScrollingDropdown">
+            <NavDropdown title={user} className='mx-2' menuVariant='dark' id="servicesScrollingDropdown">
                 <NavDropdown.Item as={Link} to="/user/dashboard">USER DASHBOARD</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="" onClick={logout}>LOGOUT</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="" onClick={logoutUser}>LOGOUT</NavDropdown.Item>
             </NavDropdown>
   )
 }
@@ -24,7 +40,11 @@ const LoginButton =()=>{
     )
 }
 
-const NavScroll=()=> {
+const NavScroll=(props)=> {
+
+  const context = useContext(userContext);
+  const {user,setuser} = context;
+  const {login,setlogin} = props
 
   return (
     <Navbar collapseOnSelect sticky='top' bg='dark' expand="lg" variant='dark' style={{zIndex:10,width:'100%'}}>
@@ -57,7 +77,8 @@ const NavScroll=()=> {
             <Nav.Item>
               <Nav.Link as={Link} className='mx-2' to='/contact'>CONTACT</Nav.Link>
             </Nav.Item>
-            {getCurrentUser ? <UserButton/>:<LoginButton/>}
+            {user&&<UserButton isLoggedIn={setuser}/>}
+            {!user&&<LoginButton/>}
           </Nav>
         </Navbar.Collapse>
         </Container>

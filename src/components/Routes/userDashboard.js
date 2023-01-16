@@ -4,10 +4,14 @@ import Userleftsidebar from '../Sidebar/userleftsidebar';
 
 const UserDashboard = () => {
   const [open, setOpen] = useState(false);
+  const Leftbar=()=>{
+    return(<h1>Users</h1>) 
+  }
 
   return (
-    <div>      
-      <Userleftsidebar/>  
+    <div>
+      UserDashboard
+      <Leftbar/> 
     </div>
   )
 }

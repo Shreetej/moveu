@@ -1,12 +1,15 @@
 import React from 'react'
 import { Button, Card, Col, Container, FormControl, FormText, Row } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/user-service';
 import { ToastContainer } from 'react-toastify';
+import userContext from '../../context/posts/UserContext';
 
-const Login=()=> {
+const Login=(props)=> {
 
+  const context = useContext(userContext);
+  const {setuser} = context;
   const navigate = useNavigate();
   const [loginDetail, setloginDetail] = useState({
      name:'',
@@ -27,12 +30,14 @@ const Login=()=> {
 
   const submitLogin = async (event)=>{
     event.preventDefault()
-    console.log(loginDetail);
+    //console.log(loginDetail);
     let user = await login(loginDetail)
-    console.log("In Login: user ="+user)
+    console.log("In Login: user ="+user.user.username)
     if(user!=null){
-      console.log(user)
-      navigate("/user/dashboard",{state:user})
+    //  console.log(user)
+      setuser(user.user.username)
+//      props.setlogin(true)
+      navigate("/user/dashboard")
     }
   }
  
