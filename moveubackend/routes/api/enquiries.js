@@ -1,6 +1,7 @@
 // routes/api/enquiries.js
 
 const express =  require('express');
+const { sendMail } = require('../../config/services/email');
 const router = express.Router();
 
 // Load Post model
@@ -34,7 +35,10 @@ router.get('/:id', (req, res) => {
 // @access Public
 router.post('/', (req, res) => {
    Enquiry.create(req.body)
-    .then(enquiry => res.json({ msg: 'Post added successfully',data:enquiry }))
+    .then(enquiry => {
+      res.json({ msg: 'Post added successfully',data:enquiry })
+      sendMail()
+    })
     .catch(err => res.status(400).json({ error: err.message }));
 });
 

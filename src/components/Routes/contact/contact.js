@@ -1,11 +1,14 @@
-import {React, useState,useEffect} from 'react'
+import {React, useState,useEffect,useContext} from 'react'
 import { Card, Container} from 'react-bootstrap'
 import { GetEnquiry } from '../../services/user-service'
 import ShowContact from './showContact'
+import userContext from '../../../context/posts/UserContext'
 
 const Contact = () => {
 
   const [enquiries, setenquiries] = useState('')
+  const usercontext = useContext(userContext);
+  const { user } = usercontext;
   
   const getEnquiries=async()=>{
     let enquiry = await GetEnquiry();
@@ -69,8 +72,8 @@ const Contact = () => {
 
   return (
     <div>
-      <ShowContact/>
-      <Container>{getAllEnquiries()}</Container>
+      {!user&&<ShowContact/>}
+      {user&&<Container>{getAllEnquiries()}</Container>}
     </div>
   )
 }

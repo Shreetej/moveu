@@ -25,7 +25,7 @@ const UserButton = (props) =>{
   }
   // }, [])
   return (            
-            <NavDropdown title={user} className='mx-2' menuVariant='dark' id="servicesScrollingDropdown">
+            <NavDropdown title={user.toUpperCase()} className='mx-2' menuVariant='dark' id="servicesScrollingDropdown">
                 <NavDropdown.Item as={Link} to="/user/dashboard">USER DASHBOARD</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="" onClick={logoutUser}>LOGOUT</NavDropdown.Item>
             </NavDropdown>
