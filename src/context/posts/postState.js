@@ -12,8 +12,9 @@ const PostState = (props) => {
     //return AllPosts
   }
 
-  const addPost= async(post)=>{
-    const newPost = await addBlog(post)
+  const addPost= async(data)=>{
+    console.log(data)
+    const newPost = await addBlog(data)
     console.log(newPost)
     setposts(posts.concat(newPost.data));
     //return AllPosts
@@ -31,19 +32,6 @@ const PostState = (props) => {
     //return AllPosts
   }
 
-
-
-//   useEffect(() => {
-//     async function fetchblog(){
-//         console.log("In post state")
-//       const AllPosts = await GetBlog()
-//       setposts(AllPosts);
-//       console.log(posts)
-//     }
-//     return () => {
-//       fetchblog()
-//     }
-//   }, [])
 
   return (
     <PostContext.Provider value={{posts,getPosts,editPost,deletePost,addPost}}>

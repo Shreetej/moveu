@@ -1,13 +1,17 @@
 import {React, useContext, useState} from 'react'
-import { Container, Form, FormGroup, FormLabel } from 'react-bootstrap'
+import { Button, Container, Form, FormGroup, FormLabel } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PostContext from '../../../context/posts/postContext'
+import { addImage } from '../../services/user-service'
+import UserContext from '../../../context/posts/UserContext'
 
 const AddPost = (props) => {
 
-  const context = useContext(PostContext);
-  const {addPost} = context
+  const postcontext = useContext(PostContext);
+  const usercontext = useContext(UserContext);
+  const {addPost} = postcontext
+  const {user} = usercontext
 
   const [data, setData] = useState({
     title:'',
@@ -17,14 +21,25 @@ const AddPost = (props) => {
     category:'',
     comments:[{body:'',date:''}],
     meta:{votes:'',favs:''},
-    published_date:Date.now(),
-    publisher:'',
+    published_date: new Date().toJSON(),
+    publisher:user.toUpperCase(),
     updated_date:''
   });
 
   const submitForm=async(event)=>{
     event.preventDefault()
+    console.log(data)
     let post = await addPost(data)
+  }
+
+  const handleupload = async()=>{
+    const files = document.getElementById('image_location');
+    console.log(files.files[0])
+    const formData = new FormData();
+    formData.append("files", files.files[0]);
+    // console.log(formData)
+    let upload = await addImage(formData)
+    setData({...data,image_location:upload})
   }
 
   const handleChange=(event,property)=>{
@@ -67,17 +82,23 @@ const AddPost = (props) => {
                     <Form.Control required type='text' placeholder='Enter category' name='category' id='category' onChange={(e)=>handleChange(e,'category')}></Form.Control>
                 </FormGroup>
               </Col>
-              <Col md={6}>
+              <Col md={4}>
                 <FormGroup md={5}>
                     <FormLabel>Image</FormLabel>
                     <Form.Control type='file' placeholder='' name='image_location' id='image_location' onChange={(e)=>handleChange(e,'image_location')}></Form.Control>
+                </FormGroup>
+              </Col>
+              <Col md={2}>
+                <FormGroup md={2}>
+                    <FormLabel></FormLabel>
+                    <Form.Control type='button' value={'Upload'} className='btn rounded-3 bg-dark text-light mt-4' style={{backgroundColor:'#222a47'}} onClick={(e)=>handleupload()}></Form.Control>
                 </FormGroup>
               </Col>
             </Row>
             <Row className='justify-content-center' style={{'textAlign':'center'}}>
               <Col md={5}>
                 <FormGroup md={3} style={{'float':'none'}}>
-                  <Form.Control type='submit' value={'Post'} className='btn rounded-0 bg-dark text-light mt-4 py-2 px-4' style={{backgroundColor:'#222a47'}}></Form.Control>
+                  <Form.Control type='submit' value={'Post'} className='btn rounded-3 bg-dark text-light mt-4 py-2 px-4' style={{backgroundColor:'#222a47'}}></Form.Control>
                 </FormGroup>
               </Col>
             </Row>

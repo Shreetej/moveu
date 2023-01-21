@@ -4,12 +4,12 @@ import { Form } from "react-bootstrap";
 
 const Userleftsidebar = (props) => {
 
-  const category = ()=>{
-    props.post.map((e)=>
-    <MenuItem key={e._id}>e.category</MenuItem>
+  const Category = ()=>{
+    return props.post.map((e)=>
+      <MenuItem key={e._id}>{e.category}</MenuItem>
     )
   }
-  // console.log(props.post.map((e)=>e.category))
+  //  console.log(props.post.map((e)=>e.category))
   return (
     <div>        
         <Sidebar className="mt-3">
@@ -25,7 +25,7 @@ const Userleftsidebar = (props) => {
                 <SubMenu label="Categories">
                   {/* console.log(post) */}
                   {/* {props.post.map((post)=><MenuItem key={post._id}>{post.category}</MenuItem>)}; */}
-                  {category}
+                  <Category/>
                 </SubMenu>
                 <SubMenu label="Most Popular articles">
                 </SubMenu>

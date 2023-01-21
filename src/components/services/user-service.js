@@ -34,8 +34,35 @@ export const GetBlog =()=>{
         });
 }
 
+export const GetPostImage =(imagepath)=>{
+    return myAxios
+        .get('/posts/upload/'+imagepath)
+        .then((response)=>{
+//            console.log(response.data)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.response.data);
+        });
+}
+
+export const addImage= (file)=>{
+    console.log(file)
+    return myAxios.post('/posts/upload',file,{headers: { "Content-Type": "multipart/form-data" }})
+    .then((response)=>{
+        console.log(response.data)
+        toast.success("Filepath: "+response.data.msg)
+        return response.data.msg
+    })
+    .catch((err)=>{
+        console.log(err)
+        toast.error(err.data)
+    })
+}
+
 export const addBlog =(post)=>{
-    console.log("In user service:"+post)
+    console.log(post)
     return myAxios
         .post('/posts/',post)
         .then((response)=>{

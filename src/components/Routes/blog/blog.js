@@ -9,13 +9,15 @@ import EditPost from './editPost';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import Modal from 'react-bootstrap/Modal';
 import userContext from '../../../context/posts/UserContext';
+import { GetPostImage } from '../../services/user-service';
+import { addImage } from '../../services/user-service';
 
 
 const Blog = () => {
 
   const context = useContext(postContext);
   const { posts, getPosts, editPost, deletePost } = context;
-//Checking if logged in
+  //Checking if logged in
   const usercontext = useContext(userContext);
   const { user } = usercontext;
 
@@ -72,6 +74,16 @@ const Blog = () => {
     }
   }
 
+  const handleupload = async () => {
+    const files = document.getElementById('eimage_location');
+    console.log(files.files)
+    const formData = new FormData();
+    formData.append("files", files.files[0]);
+    // console.log(formData)
+    let upload = await addImage(formData)
+    setData({ ...data, image_location: upload })
+  }
+
   const handleEditPost = (post) => {
     // console.log('edit')
     setData(post)
@@ -85,21 +97,22 @@ const Blog = () => {
 
   useEffect(() => {
     getPosts()
-  }, [])
+  }, [posts])
+
 
   const getAllPosts = () => {
     if (posts.length > 0) {
       return posts.map(post =>
         <Card key={post.id} className='m-3 shadow-lg' md={3}>
           <Card.Body>
-            {user!=null &&<div className='d-flex justify-content-end'>
+            {user != null && <div className='d-flex justify-content-end'>
               <FaEdit className='m-2' size={20} onClick={() => handleEditPost(post)} />
               <FaTrashAlt className='m-2' size={20} onClick={() => deletePost(post._id)} />
             </div>}
             <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{post.title}</Card.Header>
-            <Card.Img variant='top' src={post.imageLocation} />
+            {post.image_location != '' && <Card.Img variant='top' src={"http://localhost:8082/posts/upload/" + post.image_location} />}
             <Card.Title className='mt-2'>{post.subTitle}</Card.Title>
-            <Card.Text>{post.content}</Card.Text>
+            <Card.Text style={{ 'white-space': 'pre-wrap', 'overflow': 'hidden', 'text-overflow': 'ellipsis' }}>{post.content}</Card.Text>
             <Card.Footer className="d-flex text-muted" style={{ justifyContent: 'space-between' }}><div>{getAge(post.published_date)}</div>
               <div>{post.publisher}</div></Card.Footer>
           </Card.Body>
@@ -118,7 +131,7 @@ const Blog = () => {
       </div>
       <Row>
         <Col xs={9}>
-          {user!=null&&<AddPost />}
+          {user != null && <AddPost />}
           {/*Edit Post*/}
           <Button className='d-none' ref={ref} variant="primary" onClick={handleShow}>
             Launch demo modal
@@ -128,7 +141,8 @@ const Blog = () => {
             <Modal.Header closeButton>
               <Modal.Title>Edit Post</Modal.Title>
             </Modal.Header>
-            <Modal.Body>          <Row>
+            <Modal.Body>
+              <Row>
               <Col md={12} className=''>
                 <Form className='mb-5'>
                   <Row className='p-2'>
@@ -160,12 +174,19 @@ const Blog = () => {
                         <Form.Control required type='text' placeholder='Enter category' name='category' id='category' value={data.category} onChange={(e) => handleChange(e, 'category')}></Form.Control>
                       </FormGroup>
                     </Col>
-                    <Col md={6}>
+                    <Col md={4}>
                       <FormGroup md={5}>
                         <FormLabel>Image</FormLabel>
-                        <Form.Control type='file' placeholder='' name='image_location' id='image_location' value={data.image_location} onChange={(e) => handleChange(e, 'image_location')}></Form.Control>
+                        <Form.Control type='file' placeholder='' name='eimage_location' id='eimage_location' onChange={(e) => handleChange(e, 'image_location')} ></Form.Control>
                       </FormGroup>
                     </Col>
+                    <Col md={2}>
+                      <FormGroup md={2}>
+                        <FormLabel></FormLabel>
+                        <Form.Control type='button' value={'Upload'} className='btn rounded-3 bg-dark text-light mt-4' style={{ backgroundColor: '#222a47' }} onClick={(e) => handleupload()}></Form.Control>
+                      </FormGroup>
+                    </Col>
+
                   </Row>
                 </Form>
               </Col>
