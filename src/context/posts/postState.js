@@ -34,7 +34,7 @@ const PostState = (props) => {
 
 
   return (
-    <PostContext.Provider value={{posts,getPosts,editPost,deletePost,addPost}}>
+    <PostContext.Provider value={{posts,getPosts,editPost,deletePost,addPost,setposts}}>
         {props.children}
     </PostContext.Provider>
   )

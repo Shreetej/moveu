@@ -13,7 +13,8 @@ const ShowContact = () => {
     company:'',
     phone:'',
     message:'',
-    enquiryDate:Date.now()
+    enquiryDate:Date.now(),
+    read:false
   });
 
   const submitForm=async(event)=>{

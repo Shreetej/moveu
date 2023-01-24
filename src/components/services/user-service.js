@@ -17,7 +17,7 @@ export const login = (user) =>{
         })
         .catch((error)=>{
             console.log(error)
-            toast(error.response.data);
+            toast(error.response);
         });
 }
 
@@ -108,8 +108,22 @@ export const GetEnquiry =()=>{
     return myAxios
         .get('/enquires/')
         .then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             // toast.success("Your Enquiry is submitted successfully: "+response.data.data._id)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.response.data);
+        });
+}
+
+export const editEnquiry =(enquiry)=>{
+    return myAxios
+        .put('/enquires/'+enquiry._id,enquiry)
+        .then((response)=>{
+            console.log(response)
+            toast.success(response.data.msg)
             return response.data;
         })
         .catch((error)=>{

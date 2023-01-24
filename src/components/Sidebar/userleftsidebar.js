@@ -1,12 +1,36 @@
 import {Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import {React} from 'react'
-import { Form } from "react-bootstrap";
+import {React,useContext} from 'react'
+import { Button, Form } from "react-bootstrap";
+import postContext from '../../context/posts/postContext';
 
-const Userleftsidebar = (props) => {
+const Userleftsidebar = () => {
+
+  const context = useContext(postContext);
+  const { posts,setposts } = context;
+
+  const handleArchiveYear=(publishYear)=>{
+    console.log("In handle Publish Year")
+    let newlist =  posts.filter((e)=>e.publish_date.getFullYear()===publishYear)
+    console.log(newlist)
+    setposts(newlist)
+  }
+
+  const handleCategories=(category)=>{
+    console.log("In handle Categories")
+    let newlist = posts.filter((e)=>e.category===category)
+    console.log(newlist)
+    setposts(newlist)
+  }
 
   const Category = ()=>{
-    return props.post.map((e)=>
-      <MenuItem key={e._id}>{e.category}</MenuItem>
+    return posts.map((e)=>
+      <Button onClick={()=>handleCategories(e.category)}>{e.category}</Button>
+    )
+  }
+
+  const Archives = ()=>{
+    return posts.map((e)=>
+      <MenuItem key={e._id} onClick={()=>handleArchiveYear(e.publish_date)}>{e.publish_date}</MenuItem>
     )
   }
   //  console.log(props.post.map((e)=>e.category))
@@ -23,11 +47,12 @@ const Userleftsidebar = (props) => {
         </Form>
             <Menu>
                 <SubMenu label="Categories">
-                  {/* console.log(post) */}
-                  {/* {props.post.map((post)=><MenuItem key={post._id}>{post.category}</MenuItem>)}; */}
                   <Category/>
                 </SubMenu>
                 <SubMenu label="Most Popular articles">
+                </SubMenu>
+                <SubMenu label="Archives">
+                  <Archives/>
                 </SubMenu>
             </Menu>
         </Sidebar>
