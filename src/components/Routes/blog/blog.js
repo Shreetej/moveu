@@ -1,6 +1,5 @@
 import { React, useState, useEffect, useContext, useRef } from 'react'
 import { Card, Row, Col, Container, Button, Form, FormGroup, FormLabel } from 'react-bootstrap';
-import Userleftsidebar from '../../Sidebar/userleftsidebar';
 import ElderlyImage from '../../../images/blog/mountainyoga.jpg'
 import postContext from '../../../context/posts/postContext';
 import AddPost from './addPost';
@@ -78,16 +77,15 @@ const Blog = () => {
     console.log(files.files)
     const formData = new FormData();
     formData.append("files", files.files[0]);
-    // console.log(formData)
     let upload = await addImage(formData)
     setData({ ...data, image_location: upload })
   }
 
   const handleEditPost = (post) => {
-    // console.log('edit')
     setData(post)
     ref.current.click();
   }
+
   const saveEditedPost = async (post) => {
     let savedPost = await editPost(data);
     //console.log('savedPost')
@@ -97,7 +95,6 @@ const Blog = () => {
   useEffect(() => {
     getPosts()
   }, [posts])
-
 
   const getAllPosts = () => {
     if (posts.length > 0) {
@@ -109,7 +106,6 @@ const Blog = () => {
               <FaTrashAlt className='m-2' size={20} onClick={() => deletePost(post._id)} />
             </div>}
             <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{post.title}</Card.Header>
-            {post.image_location != '' && <Card.Img variant='top' src={BASE_URL+"/posts/upload/" + post.image_location} />}
             {post.image_location != '' && <Card.Img variant='top' src={BASE_URL+"/posts/upload/" + post.image_location} />}
             <Card.Title className='mt-2'>{post.subTitle}</Card.Title>
             <Card.Text style={{ 'white-space': 'pre-wrap', 'overflow': 'hidden', 'text-overflow': 'ellipsis' }}>{post.content}</Card.Text>
