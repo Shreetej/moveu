@@ -110,6 +110,7 @@ const Blog = () => {
             </div>}
             <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{post.title}</Card.Header>
             {post.image_location != '' && <Card.Img variant='top' src={BASE_URL+"/posts/upload/" + post.image_location} />}
+            {post.image_location != '' && <Card.Img variant='top' src={BASE_URL+"/posts/upload/" + post.image_location} />}
             <Card.Title className='mt-2'>{post.subTitle}</Card.Title>
             <Card.Text style={{ 'white-space': 'pre-wrap', 'overflow': 'hidden', 'text-overflow': 'ellipsis' }}>{post.content}</Card.Text>
             <Card.Footer className="d-flex text-muted" style={{ justifyContent: 'space-between' }}><div>{getAge(post.published_date)}</div>
