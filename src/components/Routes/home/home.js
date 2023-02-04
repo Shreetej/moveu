@@ -10,23 +10,28 @@ import {Link, useNavigate} from 'react-router-dom'
 import { Button, Nav } from 'react-bootstrap';
 import Wellness from './wellness';
 import Whatpeoplesay from './whatpeoplesay';
-
-
+import Slider from './Slider';
 
 const Home=(props)=> {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  // Carousel on homepage
-  function Reroute(){
-    useEffect(() => {
-      return () => {
-        navigate('/contact')
-      }
-    },[])
-  }
+  // // // Carousel on homepage
+  // // function Reroute(){
+  // //   useEffect(() => {
+  // //     return () => {
+  // //       navigate('/contact')
+  // //     }
+  // //   },[])
+  // // }
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+  
 
   return (
     <>
+    <Slider/>
     <div className='d-block'>
     <Carousel controls={false} indicators={false}>
       <Carousel.Item style={{maxHeight:'85vh'}}>

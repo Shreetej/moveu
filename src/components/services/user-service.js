@@ -72,7 +72,7 @@ export const addBlog =(post)=>{
         })
         .catch((error)=>{
             console.log(error)
-            toast(error.response.data);
+            toast(error.data);
         });
 }
 

@@ -95,6 +95,10 @@ const Blog = () => {
   useEffect(() => {
     getPosts()
   }, [posts])
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const getAllPosts = () => {
     if (posts.length > 0) {
@@ -108,7 +112,7 @@ const Blog = () => {
             <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{post.title}</Card.Header>
             {post.image_location != '' && <Card.Img variant='top' src={BASE_URL+"/posts/upload/" + post.image_location} />}
             <Card.Title className='mt-2'>{post.subTitle}</Card.Title>
-            <Card.Text style={{ 'white-space': 'pre-wrap', 'overflow': 'hidden', 'text-overflow': 'ellipsis' }}>{post.content}</Card.Text>
+            <Card.Text style={{ 'white-space': 'pre-wrap', 'overflow': 'hidden', 'textOverflow': 'ellipsis' }}>{post.content}</Card.Text>
             <Card.Footer className="d-flex text-muted" style={{ justifyContent: 'space-between' }}><div>{getAge(post.published_date)}</div>
               <div>{post.publisher}</div></Card.Footer>
           </Card.Body>

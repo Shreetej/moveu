@@ -21,6 +21,7 @@ const Contact = () => {
 
   useEffect(() => {
     getEnquiries()
+    window.scrollTo(0, 0)
   }, [])
 
   const handleUnread=()=>{
@@ -30,6 +31,7 @@ const Contact = () => {
   const handleRead=()=>{
 
   }
+
   const getReadUnreadCount=()=>{
     const countOfEnquiries= {read:0,unread:0};
     let newlist = groupBy(enquiries,'read');
@@ -75,8 +77,8 @@ const Contact = () => {
                   <Accordion.Header>Inbox</Accordion.Header>
                   <Accordion.Body>
                     <ul>
-                      <li className='mx-4'><Link style={{'text-decoration':'none'}}onClick={handleUnread}>Unread </Link><Badge bg="dark">{getReadUnreadCount().unread}</Badge></li>
-                      <li className='mx-4'><Link style={{'text-decoration':'none'}}onClick={handleRead}>Read </Link><Badge bg="dark">{getReadUnreadCount().read}</Badge></li>
+                      <li className='mx-4'><Link style={{textDecoration:'none'}}onClick={handleUnread}>Unread </Link><Badge bg="dark">{getReadUnreadCount().unread}</Badge></li>
+                      <li className='mx-4'><Link style={{textDecoration:'none'}}onClick={handleRead}>Read </Link><Badge bg="dark">{getReadUnreadCount().read}</Badge></li>
                     </ul>
                   </Accordion.Body>
                 </Accordion.Item>

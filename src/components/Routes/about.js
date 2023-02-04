@@ -1,38 +1,38 @@
 import React from 'react'
-import {Row,Col, Image} from 'react-bootstrap'
-import DemoImage from '../../images/wellness/enjoylife.jpg'
-import DemoImage2 from '../../images/wellness/happywoman.jpg'
+import {Container, Row,Col, Image, Button} from 'react-bootstrap'
+import MissionImage from '../../images/about/pexelsackerman.jpg'
+import ResultsImage from '../../images/about/pexelselina.jpg'
+import JoinUsImage from '../../images/about/pexelsmarcus.jpg'
+
 const About=()=> {
   return (
     <div>
-      <Row>
-        <Col xs={4}>
-          <Image src={DemoImage2}></Image>
+      <Container fluid style={{color:'white'}}>
+      <Row style={{'height':'80vh','alignItems':'center',backgroundColor:'azure',backgroundImage:`url(${MissionImage})`,backgroundSize:'cover'}}>
+        <Col className='m-4' xs={5} style={{'alignContent':'center',color:'white'}}>
+          <h2 style={{'textAlign':'center'}}>OUR MISSION</h2>
+          <p style={{'textAlign':'justify',fontSize:'20px'}}>To enhance the quality of life in the communities, we serve through our fitness philosophy, facilities, programs, and products and to instill in the lives of people everywhere the value of health and fitness.</p>
+        </Col>
+        <Col>
         </Col>
       </Row>
-      <Row>
-        <Col xs={8}>
-          <Image src={DemoImage}></Image>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={4}>
-          <div>
-            
+      <Row style={{'height':'80vh','alignItems':'center',backgroundColor:'lavender',backgroundImage:`url(${ResultsImage})`,backgroundSize:'cover'}}>
+        <Col xs={8}></Col>
+        <Col className='m-4' xs={4} >
+          <div style={{'alignContent':'center',justifyContent:'center'}}>
+            <h2 style={{'textAlign':'center'}}>RESULTS</h2>
+            <p style={{'textAlign':'justify',fontSize:'20px'}}>Check what people have to say about us & their progress in lives from what they were to what they are today</p>
+            <Button>PROOF</Button>
           </div>
         </Col>
-        <Col xs={8}>
+      </Row>
+      <Row style={{'height':'80vh','alignItems':'start',backgroundColor:'honeydew',backgroundImage:`url(${JoinUsImage})`,backgroundSize:'cover',opacity:'85%'}}>
+        <Col style={{'textAlign':'center'}}>
+          <h2 className='mt-4'>JOIN US</h2>
+          <p style={{fontSize:'20px'}}>Check what people have to say about us & their progress in lives from what they were to what they are today</p>
         </Col>
       </Row>
-      <Row>
-        <Col xs={4}>
-          <div>
-            
-          </div>
-        </Col>
-        <Col xs={8}>
-        </Col>
-      </Row>
+      </Container>
     </div>
   )
 }
