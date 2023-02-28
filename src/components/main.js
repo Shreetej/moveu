@@ -66,7 +66,7 @@ const NavScroll=(props)=> {
             </Nav.Item>
             <Nav.Item>
               <NavDropdown title="SERVICES" className='mx-2' menuVariant='dark' id="servicesScrollingDropdown">
-                <NavDropdown.Item as={Link} to="/humanengagement">Human Engagement</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/humanResources">Human Resources</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/facilityMgt">Facility Design & Management</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/digProg">Digital Programming</NavDropdown.Item>
               </NavDropdown>

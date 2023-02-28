@@ -6,7 +6,7 @@ import Contact from './components/Routes/contact/contact';
 import DigProg from './components/Routes/services/digProg';
 import FacilityMgt from './components/Routes/services/facilityMgt';
 import Login from './components/Routes/login';
-import HumanEngagement from './components/Routes/services/humanEngagement';
+import HumanResources from './components/Routes/services/humanResources';
 import Blog from './components/Routes/blog/blog';
 import Main from './components/main';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,7 +20,6 @@ import {
 } from 'react-router-dom';
 import UserDashboard from './components/Routes/userDashboard';
 import PrivateRoute from './components/Routes/PrivateRoute';
-import { logout, isLoggedIn } from './components/services/user-service';
 import PostState from './context/posts/postState';
 import UserState from './context/posts/UserState';
 
@@ -52,7 +51,7 @@ function App() {
               <Route path='/contact' element={<Contact />} />
               <Route path='/blog' element={<Blog/>} />
               <Route path='/login' element={<Login/>} />
-              <Route path='/humanEngagement' element={<HumanEngagement />} />
+              <Route path='/humanResources' element={<HumanResources />} />
               <Route path='/facilityMgt' element={<FacilityMgt />} />
               <Route path='/digProg' element={<DigProg />} />
               <Route path='/user' element={<PrivateRoute />}>

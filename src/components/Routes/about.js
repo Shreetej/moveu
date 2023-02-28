@@ -18,7 +18,7 @@ const About=()=> {
       </Row>
       <Row style={{'height':'80vh','alignItems':'center',backgroundColor:'lavender',backgroundImage:`url(${ResultsImage})`,backgroundSize:'cover'}}>
         <Col xs={8}></Col>
-        <Col className='m-4' xs={4} >
+        <Col className='m-4' xs={3} >
           <div style={{'alignContent':'center',justifyContent:'center'}}>
             <h2 style={{'textAlign':'center'}}>RESULTS</h2>
             <p style={{'textAlign':'justify',fontSize:'20px'}}>Check what people have to say about us & their progress in lives from what they were to what they are today</p>
