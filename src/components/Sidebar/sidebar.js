@@ -1,11 +1,29 @@
-import { React } from 'react'
+import { React, useContext } from 'react'
 import { Accordion, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import postContext from '../../context/posts/postContext';
 
-const Sidebar = (posts) => {
-    const categories = [...new Set(posts.posts.map(data=>data.category.toUpperCase()))];
-    const authors = [...new Set(posts.posts.map(data=>data.publisher).filter(Boolean).map(data=>data.toUpperCase()))];
-    const years = [...new Set(posts.posts.map(data=>new Date(data.published_date).getFullYear()).filter(Boolean))];
+const Sidebar = () => {
+
+    const context = useContext(postContext);
+    const { posts, setposts} = context;
+    const categories = [...new Set(posts.map(data=>data.category.toUpperCase()))];
+    const authors = [...new Set(posts.map(data=>data.publisher).filter(Boolean).map(data=>data.toUpperCase()))];
+    const years = [...new Set(posts.map(data=>new Date(data.published_date).getFullYear()).filter(Boolean))];
+
+    const filterAuthor = (author) => {
+        setposts(posts.filter((data)=>data.publisher.toUpperCase()===author))
+    }
+
+    const filterCategory = (category) => {
+        setposts(posts.filter((data)=>data.category.toUpperCase()===category))
+    }
+
+    const filterYear = (year) => {
+        console.log("Hi"+year)
+        setposts(posts.filter((data)=>data.published_date===year))
+    }
+
     return (
         <>
             <Container>
@@ -19,21 +37,21 @@ const Sidebar = (posts) => {
                             <Accordion.Header>Categories</Accordion.Header>
                             <Accordion.Body>
                                 <ul>
-                                {categories.map((data) => (<li><Link to="#" className="link-dark rounded">{data}</Link></li>))}
+                                {categories.map((data) => (<li key={data}><Link to="#" className="link-dark rounded" onClick={()=>filterCategory(data)}>{data}</Link></li>))}
                                 </ul>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>Author</Accordion.Header>
                             <Accordion.Body>
-                                <ul>                                {authors.map((data) => (<li><Link to="#" key='{data}' className="link-dark rounded">{data}</Link></li>))}
+                                <ul>{authors.map((data) => (<li key={data}><Link to="#" className="link-dark rounded" onClick={()=>filterAuthor(data)}>{data}</Link></li>))}
                                 </ul>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
                             <Accordion.Header>Years</Accordion.Header>
                             <Accordion.Body>
-                                <ul>{years.map((data) => (<li><Link to="#" key='{data}' className="link-dark rounded">{data}</Link></li>))}
+                                <ul>{years.map((data) => (<li key={data}><Link to="#" className="link-dark rounded" onClick={()=>filterYear(data)}>{data}</Link></li>))}
                                 </ul>
                             </Accordion.Body>
                         </Accordion.Item>

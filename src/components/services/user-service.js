@@ -33,12 +33,12 @@ export const GetBlog =()=>{
             toast(error.response.data);
         });
 }
-
+ 
 export const GetPostImage =(imagepath)=>{
     return myAxios
         .get('/posts/upload/'+imagepath)
         .then((response)=>{
-//            console.log(response.data)
+            console.log(response.data)
             return response.data;
         })
         .catch((error)=>{
@@ -129,6 +129,35 @@ export const editEnquiry =(enquiry)=>{
         .catch((error)=>{
             console.log(error)
             toast(error.response.data);
+        });
+}
+
+export const addSubscription =(post)=>{
+    console.log(post)
+    return myAxios
+        .post('/subscriptions/',post)
+        .then((response)=>{
+            console.log(response.data.data._id)
+            toast.success("Subscribed successfully: "+response.data.data._id)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.data);
+        });
+}
+
+export const editSubscription =(post)=>{
+    return myAxios
+        .put('/subscriptions/'+post._id,post)
+        .then((response)=>{
+            console.log(response.data.data._id)
+            toast.success("Unsubscribed successfully: "+response.data.data._id)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.data);
         });
 }
 

@@ -100,7 +100,11 @@ const Blog = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  const getAllPosts = () => {
+  useEffect(()=>{
+    GetAllPosts()
+  },[posts])
+
+  const GetAllPosts = () => {
     if (posts.length > 0) {
       return posts.map(post =>
         <Card key={post.id} className='m-3 shadow-lg' md={3}>
@@ -110,7 +114,7 @@ const Blog = () => {
               <FaTrashAlt className='m-2' size={20} onClick={() => deletePost(post._id)} />
             </div>}
             <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{post.title}</Card.Header>
-            {post.image_location != '' && <Card.Img variant='top' src={BASE_URL+"/posts/upload/" + post.image_location} />}
+            {post.image_location != '' && <Card.Img variant='top' src={BASE_URL+'/posts/upload/' + post.image_location} />}
             <Card.Title className='mt-2'>{post.subTitle}</Card.Title>
             <Card.Text style={{ 'whiteSpace': 'pre-wrap', 'overflow': 'hidden', 'textOverflow': 'ellipsis' }}>{post.content}</Card.Text>
             <Card.Footer className="d-flex text-muted" style={{ justifyContent: 'space-between' }}><div>{getAge(post.published_date)}</div>
@@ -203,11 +207,11 @@ const Blog = () => {
               </Button>
             </Modal.Footer>
           </Modal>
-          <Container fluid>{getAllPosts()}</Container>
+          <Container fluid><GetAllPosts/></Container>
         </Col>
         <Col xs={3}>
           <Container>
-            <Sidebar posts={posts}/>
+            <Sidebar posts={posts} setposts={setposts}/>
             {/* <Userleftsidebar /> */}
           </Container>
         </Col>
