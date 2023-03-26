@@ -65,7 +65,7 @@ const Footer=()=> {
         </Nav>
 
       </Col>
-      <Col xs={6} md={2} className='mb-2 offset-1'>
+      <Col xs={6} md={4} className='mb-2 offset-1'>
         <Form className='text-light'>
           <h4 className='text-center py-3'>Subscribe to our newsletter</h4>
           <p>Monthly digest of what's new & exciting from us</p>

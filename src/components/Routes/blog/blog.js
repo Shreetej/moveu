@@ -1,6 +1,6 @@
 import { React, useState, useEffect, useContext, useRef } from 'react'
 import { Card, Row, Col, Container, Button, Form, FormGroup, FormLabel } from 'react-bootstrap';
-import ElderlyImage from '../../../images/blog/mountainyoga.jpg'
+import ElderlyImage from '../../../images/blog/wphealthyquote.jpg'
 import postContext from '../../../context/posts/postContext';
 import AddPost from './addPost';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa'
@@ -109,12 +109,12 @@ const Blog = () => {
       return posts.map(post =>
         <Card key={post.id} className='m-3 shadow-lg' md={3}>
           <Card.Body>
-            {user != null && <div className='d-flex justify-content-end'>
+            {user !== null && <div className='d-flex justify-content-end'>
               <FaEdit className='m-2' size={20} onClick={() => handleEditPost(post)} />
               <FaTrashAlt className='m-2' size={20} onClick={() => deletePost(post._id)} />
             </div>}
             <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{post.title}</Card.Header>
-            {post.image_location != '' && <Card.Img variant='top' src={BASE_URL+'/posts/upload/' + post.image_location} />}
+            {post.image_location !== '' && <Card.Img variant='top' src={BASE_URL+'/posts/upload/' + post.image_location} />}
             <Card.Title className='mt-2'>{post.subTitle}</Card.Title>
             <Card.Text style={{ 'whiteSpace': 'pre-wrap', 'overflow': 'hidden', 'textOverflow': 'ellipsis' }}>{post.content}</Card.Text>
             <Card.Footer className="d-flex text-muted" style={{ justifyContent: 'space-between' }}><div>{getAge(post.published_date)}</div>
@@ -131,13 +131,13 @@ const Blog = () => {
 
   return (
     <div>
-      {/* <div className='' style={{backgroundImage:`url(${ElderlyImage})`,height:'60vh',backgroundRepeat:'no-repeat',backgroundSize:'contain'}}>*/}
+      {/* <div className='' style={{backgroundImage:`url(${ElderlyImage})`,height:'70vh',backgroundRepeat:'no-repeat',backgroundSize:'contain'}}> </div>*/}
       <div>
-        <img src={ElderlyImage} style={{ width: '100%', maxHeight: '60vh' }} alt='Loading failed'></img>
+        <img src={ElderlyImage} style={{ width: '100%', maxHeight: '70vh' }} alt='Loading failed'></img>
       </div>
       <Row>
         <Col xs={9}>
-          {user != null && <AddPost />}
+          {user !== null && <AddPost />}
           {/*Edit Post*/}
           <Button className='d-none' ref={ref} variant="primary" onClick={handleShow}>
             Launch demo modal
