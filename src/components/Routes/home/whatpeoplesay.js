@@ -16,7 +16,7 @@ const Whatpeoplesay = () => {
                 {/* <div className='row row-col-1 row-cols-md-3 justify-content-center'> */}
                 <CardGroup className=''>
                     {/* <Col sm={6} md={3} className='m-3'> */}
-                    <Card className='shadow-lg mx-3' style={{ content: "normal" }} >
+                    <Card className='shadow-lg mx-3' style={{backgroundColor:'#86b9d1'}}>
                         <Card.Img variant='bottom' src={Model3} className='opacity-50 rounded-circle p-4' style={{ objectFit: 'contain'  }} />
                         {/* <Card.ImgOverlay className='' > */}
                         <Card.Body >
@@ -31,7 +31,7 @@ const Whatpeoplesay = () => {
                     </Card>
                     {/* </Col> */}
                     {/* <Col sm={6} md={3} className='m-3'> */}
-                    <Card className='shadow-lg mx-3'>
+                    <Card className='shadow-lg mx-3' style={{backgroundColor:'#86b9d1'}}>
                         <Card.Img variant="" src={Model2} className='opacity-50 rounded-circle  p-4' style={{ objectFit: 'cover' }} />
                         {/* <Card.ImgOverlay> */}
                         <Card.Body>
@@ -45,7 +45,7 @@ const Whatpeoplesay = () => {
                     </Card>
                     {/* </Col> */}
                     {/* <Col sm={6} md={3} className='m-3'> */}
-                    <Card className='shadow-lg mx-3'>
+                    <Card className='shadow-lg mx-3' style={{backgroundColor:'#86b9d1'}}>
                         <Card.Img variant="top" src={Model1} className='opacity-50 rounded-circle  p-4' style={{ objectFit: 'cover' }} />
                         {/* <Card.ImgOverlay className=''> */}
                         <Card.Body>

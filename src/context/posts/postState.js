@@ -8,6 +8,7 @@ const PostState = (props) => {
   
   const getPosts= async()=>{
     const AllPosts = await GetBlog()
+    console.log(AllPosts)
     setposts(AllPosts);
     //return AllPosts
   }

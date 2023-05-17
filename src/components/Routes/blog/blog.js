@@ -139,75 +139,7 @@ const Blog = () => {
         <Col xs={9}>
           {user !== null && <AddPost />}
           {/*Edit Post*/}
-          <Button className='d-none' ref={ref} variant="primary" onClick={handleShow}>
-            Launch demo modal
-          </Button>
-
-          <Modal size='lg' show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Edit Post</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Row>
-              <Col md={12} className=''>
-                <Form className='mb-5'>
-                  <Row className='p-2'>
-                    <Col md={6}>
-                      <FormGroup md={5}>
-                        <FormLabel>Title *</FormLabel>
-                        <Form.Control required type='text' placeholder='' name='title' id='title' value={data.title} onChange={(e) => handleChange(e, 'title')}></Form.Control>
-                      </FormGroup>
-                    </Col>
-                    <Col md={6}>
-                      <FormGroup md={5}>
-                        <FormLabel>Sub Title </FormLabel>
-                        <Form.Control type='text' placeholder='' name='subTitle' id='subTitle' value={data.subTitle} onChange={(e) => handleChange(e, 'subTitle')}></Form.Control>
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row className='p-2'>
-                    <Col md={12}>
-                      <FormGroup md={5}>
-                        <FormLabel>Content *</FormLabel>
-                        <Form.Control required as='textarea' rows={3} placeholder='Your content' name='content' id='content' value={data.content} onChange={(e) => handleChange(e, 'content')}></Form.Control>
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row className='p-2'>
-                    <Col md={6}>
-                      <FormGroup md={5}>
-                        <FormLabel>Category *</FormLabel>
-                        <Form.Control required type='text' placeholder='Enter category' name='category' id='category' value={data.category} onChange={(e) => handleChange(e, 'category')}></Form.Control>
-                      </FormGroup>
-                    </Col>
-                    <Col md={4}>
-                      <FormGroup md={5}>
-                        <FormLabel>Image</FormLabel>
-                        <Form.Control type='file' placeholder='' name='eimage_location' id='eimage_location' onChange={(e) => handleChange(e, 'image_location')} ></Form.Control>
-                      </FormGroup>
-                    </Col>
-                    <Col md={2}>
-                      <FormGroup md={2}>
-                        <FormLabel></FormLabel>
-                        <Form.Control type='button' value={'Upload'} className='btn rounded-3 bg-dark text-light mt-4' style={{ backgroundColor: '#222a47' }} onClick={(e) => handleupload()}></Form.Control>
-                      </FormGroup>
-                    </Col>
-
-                  </Row>
-                </Form>
-              </Col>
-            </Row>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={() => saveEditedPost(data)}>
-                Save Changes
-              </Button>
-            </Modal.Footer>
-          </Modal>
-          <Container fluid><GetAllPosts/></Container>
+                    <Container fluid><GetAllPosts/></Container>
         </Col>
         <Col xs={3}>
           <Container>

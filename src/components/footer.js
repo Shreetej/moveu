@@ -7,7 +7,6 @@ import Container from 'react-bootstrap/Container'
 import {Link} from 'react-router-dom'
 import {BsFacebook,BsWhatsapp,BsInstagram,BsTwitter} from 'react-icons/bs'
 import { addSubscription } from './services/user-service'
-// import { Fa500Px } from 'react-icons/fa'
 
 const Footer=()=> {
 
@@ -18,9 +17,9 @@ const Footer=()=> {
     subscriptionEndDate:''
   });
 
-  const subscribe = async()=>{
-    setSubscriptionData({...subscriptionData,subscriptionStartDate:Date.now(),active:true})
-    console.log(subscriptionData)
+  const subscribe = async() =>{
+    setSubscriptionData({...subscriptionData,subscriptionStartDate:Date.now,active:true})
+    console.log("In async:"+subscriptionData)
     let subscription = await addSubscription(subscriptionData)
   }
 

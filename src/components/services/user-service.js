@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { myAxios } from "./helper";
 
-export const login = (user) =>{
+export const LoginService = (user) =>{
     return myAxios
         .post('/users/login',user)
         .then((response)=>{
@@ -17,7 +17,49 @@ export const login = (user) =>{
         })
         .catch((error)=>{
             console.log(error)
-            toast(error.response);
+            toast(error.response.data.error);
+        });
+}
+
+export const GetUsers =()=>{
+    return myAxios
+        .get('/users/')
+        .then((response)=>{
+           console.log(response.data)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.response.data);
+        });
+}
+
+
+export const ResetUserPassword =(user)=>{
+    return myAxios
+        .post('/users/rstpwd',user)
+        .then((response)=>{
+           console.log(response.data)
+            toast(response.data.msg);
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.response.data);
+        });
+}
+
+export const ChangePassword =(user)=>{
+    return myAxios
+        .post('/users/changepwd',user)
+        .then((response)=>{
+           console.log(response.data)
+            toast(response.data.msg);
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.response.data);
         });
 }
 

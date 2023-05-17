@@ -8,6 +8,9 @@ import FacilityMgt from './components/Routes/services/facilityMgt';
 import Login from './components/Routes/login';
 import HumanResources from './components/Routes/services/humanResources';
 import Blog from './components/Routes/blog/blog';
+import Posts from './components/Routes/user/Blog';
+import User from './components/Routes/user/User';
+import Password from './components/Routes/user/Password';
 import Main from './components/main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer';
@@ -18,7 +21,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import UserDashboard from './components/Routes/userDashboard';
+import UserDashboard from './components/Routes/user/userDashboard';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import PostState from './context/posts/postState';
 import UserState from './context/posts/UserState';
@@ -55,10 +58,15 @@ function App() {
               <Route path='/facilityMgt' element={<FacilityMgt />} />
               <Route path='/digProg' element={<DigProg />} />
               <Route path='/user' element={<PrivateRoute />}>
-                <Route path='dashboard' element={<UserDashboard />} />
+                <Route path='dashboard' element={<UserDashboard />}>
+                  <Route index element={<User/>}/>
+                  <Route path='/user/dashboard/users' element={<User />} />
+                  <Route path='/user/dashboard/posts' element={<Posts />} />
+                  <Route path='/user/dashboard/password' element={<Password />} />
+                </Route>
               </Route>
             </Routes>
-            <Footer />
+            <Footer/>
           </Router>
         </PostState>
       </UserState>
