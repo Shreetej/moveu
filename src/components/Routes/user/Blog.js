@@ -5,17 +5,19 @@ import { Card, Button, Modal, Form, FormLabel, FormGroup, Col, Row, Container, C
 import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import { addImage } from '../../services/user-service';
 import { BASE_URL } from '../../services/helper';
-
+import AddPost from '../blog/addPost';
 
 const Blog = () => {
 
   const { posts, getPosts, editPost, deletePost } = useContext(postContext);
   const { user } = useContext(userContext);
   const [show, setShow] = useState(false);
+  const [addshow, setAddshow] = useState(false);
   const ref = useRef(null);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const handleAddClose = () => setAddshow(false);
+  const handleAddShow = () => setAddshow(true);
   const [data, setData] = useState({
     title: '',
     subTitle: '',
@@ -66,7 +68,7 @@ const Blog = () => {
 
   const handleupload = async () => {
     const files = document.getElementById('eimage_location');
-    console.log(files.files)
+    console.log(files.files[0])
     const formData = new FormData();
     formData.append("files", files.files[0]);
     let upload = await addImage(formData)
@@ -84,19 +86,27 @@ const Blog = () => {
     handleClose();
   }
 
-
   useEffect(() => {
     getPosts()
     // eslint-disable-next-line
   }, [])
 
   console.log(posts)
-  console.log(user.toUpperCase())
-  const userposts = posts.filter(data => { if(data.publisher!=null) return data.publisher.toUpperCase() === user.toUpperCase(); else return null });
+  console.log(user.username.toUpperCase())
+  const userposts = posts.filter(data => { console.log(data.publisher); if((data.publisher!=null)&&(data.publisher?.toUpperCase()!=='SHREETEJ')) return data.publisher.toUpperCase() === user?.username.toUpperCase(); else if(data.publisher?.toUpperCase()==='SHREETEJ') return posts; else return null });
   console.log(userposts)
 
   return (
     <div>
+      <Button variant='primary' onClick={()=>handleAddShow()}>Add Post</Button>
+      <Modal size='lg' show={addshow} onHide={handleAddClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Post</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AddPost />
+        </Modal.Body>
+      </Modal>
       {/*Edit Post*/}
       <Button className='d-none' ref={ref} variant="primary" onClick={handleShow}>
         Launch demo modal
@@ -150,7 +160,6 @@ const Blog = () => {
                       <Form.Control type='button' value={'Upload'} className='btn rounded-3 bg-dark text-light mt-4' style={{ backgroundColor: '#222a47' }} onClick={(e) => handleupload()}></Form.Control>
                     </FormGroup>
                   </Col>
-
                 </Row>
               </Form>
             </Col>
@@ -171,7 +180,7 @@ const Blog = () => {
           <Col>
           <Card key={data.id} className='m-3 shadow-lg' xs={3}>
             <Card.Body>
-              {user !== null && <div className='d-flex justify-content-end'>
+              {user.username !== null && <div className='d-flex justify-content-end'>
                 <FaEdit className='m-2' size={20} onClick={() => handleEditPost(data)} />
                 <FaTrashAlt className='m-2' size={20} onClick={() => deletePost(data._id)} />
               </div>}

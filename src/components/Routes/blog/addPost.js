@@ -1,5 +1,5 @@
 import {React, useContext, useState} from 'react'
-import { Button, Container, Form, FormGroup, FormLabel } from 'react-bootstrap'
+import { Container, Form, FormGroup, FormLabel } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PostContext from '../../../context/posts/postContext'
@@ -22,7 +22,7 @@ const AddPost = (props) => {
     comments:[{body:'',date:''}],
     meta:{votes:'',favs:''},
     published_date: new Date().toJSON(),
-    publisher:user.toUpperCase(),
+    publisher:user.username.toUpperCase(),
     updated_date:''
   });
 
@@ -47,7 +47,7 @@ const AddPost = (props) => {
   }
 
   return (
-    <Container className='shadow-lg rounded-3 m-4'>
+    <Container className='shadow-lg rounded-3 m-2'>
     <Row>
       <Col md={12} className=''>
         <div className='bg-white form h-100 p-5'>

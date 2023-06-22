@@ -1,13 +1,13 @@
 import { React, useContext, useState } from 'react'
 import { Form, Row, Col, FormGroup, FormLabel, Container } from 'react-bootstrap'
-import { ResetUserPassword } from '../../services/user-service';
+import { ChangePassword} from '../../services/user-service';
 import userContext from '../../../context/posts/UserContext';
 
 const Password = () => {
 
   const {user} = useContext(userContext)
   const [data, setData] = useState({
-    username: user,
+    username: user.username,
     cpassword: '',
     npassword: '',
     rpassword: '',
@@ -20,7 +20,7 @@ const Password = () => {
   const submitForm = async (event) => {
     event.preventDefault()
     // console.log(data)
-    let enquiry = await ResetUserPassword(data)
+    let enquiry = await ChangePassword(data)
     document.getElementById('passForm').reset();
     console.log(enquiry)
   }

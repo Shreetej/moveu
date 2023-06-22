@@ -4,13 +4,14 @@ import Runninggirl from '../../../images/homeCarousel/runninggirl.jpg'
 import Stretching from '../../../images/homeCarousel/stretching.jpg'
 import CorporateWellness from '../../../images/homeCarousel/CorporateWellness.jpg'
 import GroupLeader from '../../../images/homeCarousel/corporate-leader.jpg'
-import Corptrgfeatured from '../../../images/homeCarousel/CorporateTrainingfeatured.png'
 import BallExercise from '../../../images/homeCarousel/corporatefitnessprogramsandproviders.jpg'
 import {Link, useNavigate} from 'react-router-dom'
 import { Button, Nav } from 'react-bootstrap';
 import Wellness from './wellness';
 import Whatpeoplesay from './whatpeoplesay';
 import Slider from './Slider';
+import ServicesInHome from './servicesInHome/servicesInHome';
+import VideoPlayer from './videoPlayer';
 
 const Home=(props)=> {
   // const navigate = useNavigate();
@@ -105,22 +106,10 @@ const Home=(props)=> {
           <Button as={Link} className='opacity-75' to='/contact'>Schedule a Demo</Button>
         </Carousel.Caption>
       </Carousel.Item>
-      {/* <Carousel.Item style={{maxHeight:'85vh'}}>
-        <img
-          className="d-block w-100"
-          src={Corptrgfeatured}
-          alt="Sixth slide"
-          style={{backgroundAttachment:'fixed'}}
-        />
-        <Carousel.Caption style={{position:'absolute', top:'8px',left:'16px'}}>
-          {/* <h2 style={{color:'lightsteelblue',maxWidth:'40vw'}}>"I hate every minute of training. But I said, don’t quit. Suffer now and live the rest of your life as a champion." -Mohammed Ali</h2> */}
-        {/* </Carousel.Caption>
-        <Carousel.Caption>
-          <Button className='opacity-75'>Schedule a Demo</Button>
-        </Carousel.Caption>
-      </Carousel.Item> */} 
     </Carousel>
     </div>
+    <VideoPlayer/>
+    <ServicesInHome/>
     <Wellness/>
     <Whatpeoplesay/>
     </>

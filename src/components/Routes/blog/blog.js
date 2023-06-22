@@ -14,7 +14,7 @@ import Sidebar from '../../Sidebar/sidebar';
 const Blog = () => {
 
   const context = useContext(postContext);
-  const { posts, getPosts, editPost, deletePost, setposts} = context;
+  const { posts, getPosts, editPost, setposts} = context;
   //Checking if logged in
   const usercontext = useContext(userContext);
   const { user } = usercontext;
@@ -109,10 +109,10 @@ const Blog = () => {
       return posts.map(post =>
         <Card key={post.id} className='m-3 shadow-lg' md={3}>
           <Card.Body>
-            {user !== null && <div className='d-flex justify-content-end'>
+            {/* {user!== null && <div className='d-flex justify-content-end'>
               <FaEdit className='m-2' size={20} onClick={() => handleEditPost(post)} />
               <FaTrashAlt className='m-2' size={20} onClick={() => deletePost(post._id)} />
-            </div>}
+            </div>} */}
             <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{post.title}</Card.Header>
             {post.image_location !== '' && <Card.Img variant='top' src={BASE_URL+'/posts/upload/' + post.image_location} />}
             <Card.Title className='mt-2'>{post.subTitle}</Card.Title>

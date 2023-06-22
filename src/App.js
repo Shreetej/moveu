@@ -59,7 +59,7 @@ function App() {
               <Route path='/digProg' element={<DigProg />} />
               <Route path='/user' element={<PrivateRoute />}>
                 <Route path='dashboard' element={<UserDashboard />}>
-                  <Route index element={<User/>}/>
+                  <Route index element={<Posts/>}/>
                   <Route path='/user/dashboard/users' element={<User />} />
                   <Route path='/user/dashboard/posts' element={<Posts />} />
                   <Route path='/user/dashboard/password' element={<Password />} />

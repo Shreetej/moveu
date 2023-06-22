@@ -45,7 +45,7 @@ const Login = (props) => {
     // console.log("In Login: user =" + user.user.username)
     if (user != null) {
       //  console.log(user)
-      setuser(user.user.username)
+      setuser(user.user)
       //      props.setlogin(true)
       navigate("/user/dashboard")
     }

@@ -34,10 +34,23 @@ export const GetUsers =()=>{
         });
 }
 
+export const CreateUser =(user)=>{
+    return myAxios
+        .post('/users/',user,{headers:{Authorization:`Bearer `+localStorage.getItem('Authorization')}})
+        .then((response)=>{
+           console.log(response.data)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.response.data);
+        });
+}
+
 
 export const ResetUserPassword =(user)=>{
     return myAxios
-        .post('/users/rstpwd',user)
+        .post('/users/rstpwd',user,{headers:{Authorization:`Bearer `+localStorage.getItem('Authorization')}})
         .then((response)=>{
            console.log(response.data)
             toast(response.data.msg);

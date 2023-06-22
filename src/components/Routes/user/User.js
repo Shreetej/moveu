@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 import { Accordion, Button, Container, Form, Modal, Row, Col, FormGroup, FormLabel } from 'react-bootstrap'
 import { GetUsers,ResetUserPassword} from '../../services/user-service'
 import userContext from '../../../context/posts/UserContext'
+import AddUser from './addUser'
 
 const getUsers = async (setusers, user) => {
   let users = await GetUsers()
@@ -22,11 +23,14 @@ const User = (props) => {
   const { user } = usercontext;
   const ref = useRef(null);
   const [show, setShow] = useState(false);
+  const [showUser, setShowuser] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (userName,Email) => {
     setShow(true);
     setUserdetails({...userdetails,username:userName,email:Email})
   }
+  const handleCloseuser = () => setShowuser(false);
+  const handleShowuser = () => setShowuser(true);
   const [userdetails, setUserdetails] = useState({
     username:'',
     password:'',
@@ -43,13 +47,22 @@ const User = (props) => {
   }
 
   useEffect(() => {
-    getUsers(setUsers, user)
+    getUsers(setUsers, user.username)
     // setusernames(userlist)
     // eslint-disable-next-line
   }, [])
 
   return (
     <div>
+      <>
+        <Button className='d-block' onClick={()=>handleShowuser()}>Add User</Button>
+        <Modal show={showUser} size='lg' onHide={handleCloseuser}>
+          <Modal.Header closeButton>Add User</Modal.Header>
+          <Modal.Body>
+            <AddUser/>
+          </Modal.Body>
+        </Modal>
+      </>
       <Container>
         <h1>Users</h1>
         {users.map((data) =>
