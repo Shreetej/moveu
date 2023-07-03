@@ -14,10 +14,10 @@ const Whatpeoplesay = () => {
             <div className='container m-0 p-4'>
                 <h1 className='mt-3 text-center' >WHAT PEOPLE SAY</h1>
                 {/* <div className='row row-col-1 row-cols-md-3 justify-content-center'> */}
-                <CardGroup className=''>
+                <CardGroup className='rounded'>
                     {/* <Col sm={6} md={3} className='m-3'> */}
-                    <Card className='shadow-lg mx-3' style={{backgroundColor:'#86b9d1'}}>
-                        <Card.Img variant='bottom' src={Model3} className='opacity-50 rounded-circle p-4' style={{ objectFit: 'contain'  }} />
+                    <Card className='shadow-lg mx-3 rounded-4' style={{backgroundColor:'#86b9d1'}}>
+                        <Card.Img variant='bottom' src={Model3} className='opacity-50 p-2' style={{ objectFit: 'contain', borderRadius:'50%'}} />
                         {/* <Card.ImgOverlay className='' > */}
                         <Card.Body >
                             <Card.Title className='fs-4 fw-bold text-center' >Krishna Godwani<p></p></Card.Title>
@@ -31,7 +31,7 @@ const Whatpeoplesay = () => {
                     </Card>
                     {/* </Col> */}
                     {/* <Col sm={6} md={3} className='m-3'> */}
-                    <Card className='shadow-lg mx-3' style={{backgroundColor:'#86b9d1'}}>
+                    <Card className='shadow-lg mx-3 rounded-4' style={{backgroundColor:'#86b9d1'}}>
                         <Card.Img variant="" src={Model2} className='opacity-50 rounded-circle  p-4' style={{ objectFit: 'cover' }} />
                         {/* <Card.ImgOverlay> */}
                         <Card.Body>
@@ -45,7 +45,7 @@ const Whatpeoplesay = () => {
                     </Card>
                     {/* </Col> */}
                     {/* <Col sm={6} md={3} className='m-3'> */}
-                    <Card className='shadow-lg mx-3' style={{backgroundColor:'#86b9d1'}}>
+                    <Card className='shadow-lg mx-3 rounded-4' style={{backgroundColor:'#86b9d1'}}>
                         <Card.Img variant="top" src={Model1} className='opacity-50 rounded-circle  p-4' style={{ objectFit: 'cover' }} />
                         {/* <Card.ImgOverlay className=''> */}
                         <Card.Body>

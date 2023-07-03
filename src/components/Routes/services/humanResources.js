@@ -8,19 +8,19 @@ import PersonalTrainer from '../../../images/HR/PersonalTrainer.jpg'
 const HumanResources = () => {
   return (
     <div>
-      <Container fluid style={{ color: 'white' }}>
+      <Container fluid style={{ color: 'white', fontSize:'3.5vh' }}>
         <Row style={{ 'height': '85vh', 'alignItems': 'center', backgroundColor: 'azure', backgroundImage: `url(${HumanResource})`, backgroundSize: 'cover' }}>
           <Col className='m-4' xs={11} style={{ 'alignContent': 'center', color: 'white' }}>
             <h2 style={{ 'textAlign': 'center' }}>HUMAN RESOURCES</h2>
-            <p style={{ 'textAlign': 'center', fontSize: '20px' }}>MOVEYOU has access to the best personal trainers, coaches, and health and fitness professionals in the business. The opportunity to bring trainers and certified professionals on site to lead instruction is what sets the MOVEYOU experience apart while delivering tremendous value to participants.</p>
+            <p style={{ 'textAlign': 'center'}}>MOVEYOU has access to the best personal trainers, coaches, and health and fitness professionals in the business. The opportunity to bring trainers and certified professionals on site to lead instruction is what sets the MOVEYOU experience apart while delivering tremendous value to participants.</p>
           </Col>
         </Row>
-        <Row style={{ 'height': '85vh', 'alignItems': 'flex-start', backgroundColor: 'lavender', backgroundImage: `url(${PersonalTrainer})`, backgroundSize: 'cover',color:'black' }}>
-        <Col xs={7}></Col>
-          <Col className='' xs={5} >
+        <Row style={{ 'height': 'fit-content', 'alignItems': 'flex-start', backgroundColor: 'lavender', backgroundImage: `url(${PersonalTrainer})`, backgroundSize: 'cover',color:'black' }}>
+        <Col lg={7}></Col>
+          <Col className='' xs={12} lg={5} >
             <div className='p-4' style={{ 'alignContent': 'center', justifyContent: 'center' }}>
               <h2 style={{ 'textAlign': 'center' }}>PERSONAL TRAINERS</h2>
-              <p style={{ 'textAlign': 'justify', fontSize: '20px' }}>Our elite team of personal trainers bring years of technical fitness experience and electric energy on-site partner locations to engage with the population.</p>
+              <p style={{ 'textAlign': 'justify' }}>Our elite team of personal trainers bring years of technical fitness experience and electric energy on-site partner locations to engage with the population.</p>
               <p className='mt-4'>On-site trainers can provide:</p>
               <div className='m-2'>
                 <ul>
@@ -33,10 +33,10 @@ const HumanResources = () => {
             </div>
           </Col>
         </Row>
-        <Row style={{ 'height': '85vh', 'alignItems': 'start', backgroundColor: 'honeydew', backgroundImage: `url(${Dietician})`, backgroundSize: 'cover', opacity: '85%' }}>
-          <Col xs={4} className='mx-4 p-4' style={{ color: 'black' }}>
+        <Row style={{ 'height': 'fit-content', 'alignItems': 'start', backgroundColor: 'honeydew', backgroundImage: `url(${Dietician})`, backgroundSize: 'cover', opacity: '85%' }}>
+          <Col lg={4} xs= {11} className='mx-4 p-4' style={{ color: 'black' }}>
             <h2 className='mt-4'>DIETITIANS</h2>
-            <p style={{ fontSize: '20px' }}>Our food should be our medicine & our medicine should be our food. Our deititians help you select food nutritions to achieve your goals.</p>
+            <p>Our food should be our medicine & our medicine should be our food. Our deititians help you select food nutritions to achieve your goals.</p>
             <p className='mt-4'>Onsite dietitians can provide:</p>
             <div className='m-2'>
               <ul>
@@ -47,13 +47,13 @@ const HumanResources = () => {
               </ul>
             </div>
           </Col>
-          <Col xs={7}></Col>
+          <Col lg={7}></Col>
         </Row>
-        <Row style={{ 'height': '85vh', 'alignItems': 'center', backgroundColor: 'azure', backgroundImage: `url(${PhysicalTherapist})`, backgroundSize: 'cover' }}>
-          <Col xs={7}></Col>
-          <Col className='' xs={5} style={{ 'alignContent': 'center', color: 'black' }}>
+        <Row style={{ 'height': 'fit-content', 'alignItems': 'center', backgroundColor: 'azure', backgroundImage: `url(${PhysicalTherapist})`, backgroundSize: 'cover' }}>
+          <Col lg={7}></Col>
+          <Col className='' lg={5} xs={12} style={{ 'alignContent': 'center', color: 'black' }}>
             <h2 className='p-3' style={{ 'textAlign': 'center' }}>PHYSICAL THERAPISTS</h2>
-            <p className='p-3' style={{ 'textAlign': 'justify', fontSize: '20px' }}>We strive make physical therapy "cool" and break its "medical stereotype." Our physical therapists help populations prevent pain and injury by promoting regular check-ups with a therapist, just like you would a primary care physician. </p>
+            <p className='p-3' style={{ 'textAlign': 'justify'}}>We strive make physical therapy "cool" and break its "medical stereotype." Our physical therapists help populations prevent pain and injury by promoting regular check-ups with a therapist, just like you would a primary care physician. </p>
             <p className='mt-4'>Onsite physical therapists can provide:</p>
             <div className='m-2'>
               <ul>

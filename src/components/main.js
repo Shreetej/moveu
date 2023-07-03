@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 import { logout, isLoggedIn } from './services/user-service';
 import { useState, useEffect } from 'react';
 import userContext from '../context/posts/UserContext';
+import logo from '../../src/images/logo/Asset.png';
 
 const UserButton = (props) =>{
   // const [userName, setuserName] = useState("")
@@ -49,12 +50,13 @@ const NavScroll=(props)=> {
   return (
     <Navbar collapseOnSelect sticky='top' bg='dark' expand="lg" variant='dark' style={{zIndex:10,width:'100%'}}>
       <Container>
-        <Navbar.Brand as={Link} className="fs-4" to="/">MOVE YOU</Navbar.Brand>
+        <img src={logo} alt='LOGO' height='25vh' width='25vw' />
+        <Navbar.Brand as={Link} className="mx-2 fs-4" to="/">MOVEU</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className='justify-content-end'>
           <Nav
             className="ml-auto"
-            style={{width:'65%',alignContent:'flex-end'}}
+            style={{width:'52%',alignContent:'flex-end'}}
             navbarScroll
             activeKey="1"
           >
