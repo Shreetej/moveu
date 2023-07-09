@@ -5,17 +5,17 @@ const Slider = () => {
   return (
     <div className='bg-dark text-info'>
         <motion.h6 className='m-0'
-            animate={{x:[1000,-1000]}}
+            animate={{x:[500,0]}}
             transition={{
-                duration:10,
-                delay:0,
-                ease:'linear',
+                duration:5,
+                delay:5,
+                ease:'easeIn',
                 repeat:Infinity
             }}
 
-            whileHover={{scale:1.1}}
+            whileHover={{scale:1.3}}
         >
-            No exercise results in 1. Less efficient Heart 2. Weak Muscles 3. Less Sleep 4. Disrupted Sugar Levels 
+            No exercise results in Less efficient Heart, Weak Muscles, Less Sleep, Disrupted Sugar Levels. 
         </motion.h6>
     </div>
   )

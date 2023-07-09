@@ -65,7 +65,7 @@ const Home = (props) => {
               <Button as={Link} className='opacity-75' to='/contact'>Schedule a Demo</Button>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item style={{ maxHeight: '85vh' }}>
+          <Carousel.Item className='h-85vh' >
             <img
               className="d-block w-100"
               src={Stretching}

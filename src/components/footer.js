@@ -85,7 +85,7 @@ const Footer=()=> {
           </Nav.Link>
         </li>
         <li className='ms-3'>
-          <Nav.Link href='https://www.instagram.com'>
+          <Nav.Link href='https://instagram.com/moveyoubyvik_rathi?igshid=MzRlODBiNWFlZA=='>
             <BsInstagram/>
           </Nav.Link>
         </li>

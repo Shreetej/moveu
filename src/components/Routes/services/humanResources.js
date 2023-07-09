@@ -8,17 +8,17 @@ import PersonalTrainer from '../../../images/HR/PersonalTrainer.jpg'
 const HumanResources = () => {
   return (
     <div>
-      <Container fluid style={{ color: 'white', fontSize:'3.5vh' }}>
-        <Row style={{ 'height': '85vh', 'alignItems': 'center', backgroundColor: 'azure', backgroundImage: `url(${HumanResource})`, backgroundSize: 'cover' }}>
+      <Container fluid style={{ color: 'white', fontSize:'1.2rem' }}>
+        <Row className="bg-opacity-25" style={{ 'height': '85vh', 'alignItems': 'center', backgroundColor: 'azure', backgroundImage: `url(${HumanResource})`, backgroundSize: 'cover' }}>
           <Col className='m-4' xs={11} style={{ 'alignContent': 'center', color: 'white' }}>
             <h2 style={{ 'textAlign': 'center' }}>HUMAN RESOURCES</h2>
             <p style={{ 'textAlign': 'center'}}>MOVEYOU has access to the best personal trainers, coaches, and health and fitness professionals in the business. The opportunity to bring trainers and certified professionals on site to lead instruction is what sets the MOVEYOU experience apart while delivering tremendous value to participants.</p>
           </Col>
         </Row>
-        <Row style={{ 'height': 'fit-content', 'alignItems': 'flex-start', backgroundColor: 'lavender', backgroundImage: `url(${PersonalTrainer})`, backgroundSize: 'cover',color:'black' }}>
+        <Row style={{ 'height': 'fit-content', 'alignItems': 'flex-start', backgroundColor: 'lavender', backgroundImage: `url(${PersonalTrainer})`, backgroundSize: 'cover',color:'black'}}>
         <Col lg={7}></Col>
           <Col className='' xs={12} lg={5} >
-            <div className='p-4' style={{ 'alignContent': 'center', justifyContent: 'center' }}>
+            <div className='p-4' style={{ 'alignContent': 'center', justifyContent: 'center', 'opacity':0.9 }}>
               <h2 style={{ 'textAlign': 'center' }}>PERSONAL TRAINERS</h2>
               <p style={{ 'textAlign': 'justify' }}>Our elite team of personal trainers bring years of technical fitness experience and electric energy on-site partner locations to engage with the population.</p>
               <p className='mt-4'>On-site trainers can provide:</p>
