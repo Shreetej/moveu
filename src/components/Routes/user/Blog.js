@@ -98,7 +98,7 @@ const Blog = () => {
 
   return (
     <div>
-      <Button variant='primary' onClick={()=>handleAddShow()}>Add Post</Button>
+      <Button className='w-100' variant='primary' onClick={()=>handleAddShow()}>Add Post</Button>
       <Modal size='lg' show={addshow} onHide={handleAddClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Post</Modal.Title>

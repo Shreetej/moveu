@@ -1,18 +1,17 @@
 import React from 'react'
-import {motion} from 'framer-motion'
+import {easeIn, motion} from 'framer-motion'
 
 const Slider = () => {
   return (
     <div className='bg-dark text-info'>
-        <motion.h6 className='m-0'
-            animate={{x:[500,0]}}
+        <motion.h6 className='m-0 text-nowrap'
+            animate={{x:[1000,-1000]}}
             transition={{
-                duration:5,
-                delay:5,
-                ease:'easeIn',
+                duration:10,
+                delay:2,
+                ease:'linear',
                 repeat:Infinity
             }}
-
             whileHover={{scale:1.3}}
         >
             No exercise results in Less efficient Heart, Weak Muscles, Less Sleep, Disrupted Sugar Levels. 
