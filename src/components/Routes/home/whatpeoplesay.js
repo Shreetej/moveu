@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardGroup } from 'react-bootstrap'
-import Model1 from '../../../images/WhatPeoplesay/modeltint1.jpg'
+import Model1 from '../../../images/WhatPeoplesay/MitchCrites.jpeg'
 import Model2 from '../../../images/WhatPeoplesay/modeltint2.jpg'
 import Model22 from '../../../images/WhatPeoplesay/Gayatri.jpeg'
 import Model3 from '../../../images/WhatPeoplesay/modeltint3.jpg'
