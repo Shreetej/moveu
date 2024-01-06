@@ -11,7 +11,7 @@ import Wellness from './wellness';
 import Whatpeoplesay from './whatpeoplesay';
 import Slider from './Slider';
 import ServicesInHome from './servicesInHome/servicesInHome';
-import VideoPlayer from './videoPlayer';
+// import VideoPlayer from './videoPlayer';
 
 const Home = (props) => {
   // const navigate = useNavigate();
@@ -111,7 +111,7 @@ const Home = (props) => {
           </Carousel.Item>
         </Carousel>
       </div>
-      <VideoPlayer />
+      {/* <VideoPlayer /> */}
       <ServicesInHome />
       <Wellness />
       <Whatpeoplesay />
