@@ -132,12 +132,12 @@ const Blog = () => {
         <img src={ElderlyImage} style={{ width: '100%', maxHeight: '70vh' }} alt='Loading failed'></img>
       </div>
       <Row>
-        <Col xs={9}>
+        <Col md={9} xs={12}>
           {user !== null && <AddPost />}
           {/*Edit Post*/}
                     <Container fluid><GetAllPosts/></Container>
         </Col>
-        <Col xs={3}>
+        <Col md={3} xs={0}>
           <Container>
             <Sidebar posts={posts} setposts={setposts}/>
             {/* <Userleftsidebar /> */}
