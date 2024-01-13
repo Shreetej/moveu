@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "https://moveu.onrender.com";
+export const BASE_URL = "https://moveyou-master.onrender.com";
 
 export const myAxios = axios.create({
     baseURL: BASE_URL,
