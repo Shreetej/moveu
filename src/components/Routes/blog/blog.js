@@ -137,7 +137,7 @@ const Blog = () => {
           {/*Edit Post*/}
                     <Container fluid><GetAllPosts/></Container>
         </Col>
-        <Col md={3} xs={0}>
+        <Col md={3} xs={0} className='d-none d-lg-block'>
           <Container>
             <Sidebar posts={posts} setposts={setposts}/>
             {/* <Userleftsidebar /> */}
