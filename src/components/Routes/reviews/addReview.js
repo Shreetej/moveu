@@ -2,25 +2,22 @@ import {React, useContext, useState} from 'react'
 import { Container, Form, FormGroup, FormLabel } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import PostContext from '../../../context/posts/postContext'
+import ReviewContext from '../../../context/reviews/ReviewContext'
 import { addImage } from '../../services/user-service'
 import UserContext from '../../../context/users/UserContext'
 
-const AddPost = (props) => {
+const AddReview = (props) => {
 
-  const postcontext = useContext(PostContext);
+  const reviewcontext = useContext(ReviewContext);
   const usercontext = useContext(UserContext);
-  const {addPost} = postcontext
+  const {addreview} = reviewcontext
   const {user} = usercontext
 
   const [data, setData] = useState({
-    title:'',
-    subTitle:'',
-    content:'',
+    name:'',
+    designation:'',
+    review:'',
     image_location:'',
-    category:'',
-    comments:[{body:'',date:''}],
-    meta:{votes:'',favs:''},
     published_date: new Date().toJSON(),
     publisher:user.username.toUpperCase(),
     updated_date:''
@@ -29,7 +26,7 @@ const AddPost = (props) => {
   const submitForm=async(event)=>{
     event.preventDefault()
     console.log(data)
-    let post = await addPost(data)
+    let review = await addreview(data)
   }
 
   const handleupload = async()=>{
@@ -51,37 +48,31 @@ const AddPost = (props) => {
     <Row>
       <Col md={12} className=''>
         <div className='bg-white form h-100 p-5'>
-        <h3 className='text-bold text-center'>ADD POST</h3>
+        <h3 className='text-bold text-center'>ADD REVIEW</h3>
           <Form onSubmit={submitForm} className='mb-5'>
             <Row className='p-2'>
               <Col md={6}>
                 <FormGroup md={5}>
-                    <FormLabel>Title *</FormLabel>
-                    <Form.Control required type='text' placeholder='' name='title' id='title' onChange={(e)=>handleChange(e,'title')}></Form.Control>
+                    <FormLabel>Name *</FormLabel>
+                    <Form.Control required type='text' placeholder='' name='name' id='name' onChange={(e)=>handleChange(e,'name')}></Form.Control>
                 </FormGroup>
               </Col>
               <Col md={6}>
                 <FormGroup md={5}>
-                    <FormLabel>Sub Title </FormLabel>
-                    <Form.Control type='text' placeholder='' name='subTitle' id='subTitle' onChange={(e)=>handleChange(e,'subTitle')}></Form.Control>
+                    <FormLabel>Designation *</FormLabel>
+                    <Form.Control type='text' placeholder='' name='designation' id='designation' onChange={(e)=>handleChange(e,'designation')}></Form.Control>
                 </FormGroup>
               </Col>
             </Row>
             <Row className='p-2'>
               <Col md={12}>
                 <FormGroup md={5}>
-                    <FormLabel>Content *</FormLabel>
-                    <Form.Control required as='textarea' rows={3} placeholder='Your content' name='content' id='content' onChange={(e)=>handleChange(e,'content')}></Form.Control>
+                    <FormLabel>Review *</FormLabel>
+                    <Form.Control required as='textarea' rows={3} placeholder='Your content' name='review' id='review' onChange={(e)=>handleChange(e,'review')}></Form.Control>
                 </FormGroup>
               </Col>
             </Row>
             <Row className='p-2'>
-              <Col md={6}>
-                <FormGroup md={5}>
-                    <FormLabel>Category *</FormLabel>
-                    <Form.Control required type='text' placeholder='Enter category' name='category' id='category' onChange={(e)=>handleChange(e,'category')}></Form.Control>
-                </FormGroup>
-              </Col>
               <Col md={4}>
                 <FormGroup md={5}>
                     <FormLabel>Image</FormLabel>
@@ -98,7 +89,7 @@ const AddPost = (props) => {
             <Row className='justify-content-center' style={{'textAlign':'center'}}>
               <Col md={5}>
                 <FormGroup md={3} style={{'float':'none'}}>
-                  <Form.Control type='submit' value={'Post'} className='btn rounded-3 bg-dark text-light mt-4 py-2 px-4' style={{backgroundColor:'#222a47'}}></Form.Control>
+                  <Form.Control type='submit' value={'Review'} className='btn rounded-3 bg-dark text-light mt-4 py-2 px-4' style={{backgroundColor:'#222a47'}}></Form.Control>
                 </FormGroup>
               </Col>
             </Row>
@@ -110,4 +101,4 @@ const AddPost = (props) => {
   )
 }
 
-export default AddPost
+export default AddReview

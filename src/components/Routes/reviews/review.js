@@ -1,16 +1,20 @@
-import { React, useContext, useEffect, useState, useRef } from 'react'
-import postContext from '../../../context/posts/postContext';
-import userContext from '../../../context/users/UserContext';
-import { Card, Button, Modal, Form, FormLabel, FormGroup, Col, Row, Container, CardGroup } from 'react-bootstrap'
+import { React, useState, useEffect, useContext, useRef } from 'react'
+import { Card, Row, Col, Container, Button, Form, FormGroup, FormLabel } from 'react-bootstrap';
+import ElderlyImage from '../../../images/blog/wphealthyquote.jpg'
 import { FaEdit, FaTrashAlt } from 'react-icons/fa'
-import { addImage } from '../../services/user-service';
+import Modal from 'react-bootstrap/Modal';
+import userContext from '../../../context/users/UserContext';
+import { addImage, deleteReview } from '../../services/user-service';
 import { BASE_URL } from '../../services/helper';
-import AddPost from '../blog/addPost';
+import ReviewContext from '../../../context/reviews/ReviewContext';
+import AddReview from './addReview';
 
-const Blog = () => {
 
-  const { posts, getPosts, editPost, deletePost } = useContext(postContext);
+const Review = () => {
+
+  const { reviews, getreviews, editreview, setreviews} = useContext(ReviewContext);
   const { user } = useContext(userContext);
+
   const [show, setShow] = useState(false);
   const [addshow, setAddshow] = useState(false);
   const ref = useRef(null);
@@ -18,17 +22,15 @@ const Blog = () => {
   const handleShow = () => setShow(true);
   const handleAddClose = () => setAddshow(false);
   const handleAddShow = () => setAddshow(true);
+
   const [data, setData] = useState({
-    title: '',
-    subTitle: '',
-    content: '',
-    image_location: '',
-    category: '',
-    comments: [{ body: '', date: '' }],
-    meta: { votes: '', favs: '' },
-    published_date: Date.now(),
-    publisher: '',
-    updated_date: ''
+    name:'',
+    designation:'',
+    review:'',
+    image_location:'',
+    published_date: '',
+    publisher:'',
+    updated_date:''
   });
 
   const handleChange = (event, property) => {
@@ -75,45 +77,40 @@ const Blog = () => {
     setData({ ...data, image_location: upload })
   }
 
-  const handleEditPost = (post) => {
-    setData(post)
+  const handleEditReview = (review) => {
+    setData(review)
     ref.current.click();
   }
 
-  const saveEditedPost = async (post) => {
-    let savedPost = await editPost(data);
+  const saveEditedReview = async (review) => {
+    let savedReview = await editreview(data);
     //console.log('savedPost')
     handleClose();
   }
 
   useEffect(() => {
-    getPosts()
-    // eslint-disable-next-line
+    getreviews()
+        // eslint-disable-next-line
   }, [])
-
-  console.log(posts)
-  console.log(user.username.toUpperCase())
-  const userposts = posts.filter(data => { console.log(data.publisher); if((data.publisher!=null)&&(data.publisher?.toUpperCase()!=='SHREETEJ')) return data.publisher.toUpperCase() === user?.username.toUpperCase(); else if(data.publisher?.toUpperCase()==='SHREETEJ') return posts; else return null });
-  console.log(userposts)
 
   return (
     <div>
-      <Button className='w-100' variant='primary' onClick={()=>handleAddShow()}>Add Post</Button>
+      <Button className='w-100' variant='primary' onClick={()=>handleAddShow()}>Add Review</Button>
       <Modal size='lg' show={addshow} onHide={handleAddClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Post</Modal.Title>
+          <Modal.Title>Add Review</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddPost />
+          <AddReview />
         </Modal.Body>
       </Modal>
-      {/*Edit Post*/}
+      {/*Edit Review*/}
       <Button className='d-none' ref={ref} variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
       <Modal size='lg' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Post</Modal.Title>
+          <Modal.Title>Edit Review</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row>
@@ -122,32 +119,26 @@ const Blog = () => {
                 <Row className='p-2'>
                   <Col md={6}>
                     <FormGroup md={5}>
-                      <FormLabel>Title *</FormLabel>
-                      <Form.Control required type='text' placeholder='' name='title' id='title' value={data.title} onChange={(e) => handleChange(e, 'title')}></Form.Control>
+                      <FormLabel>Name *</FormLabel>
+                      <Form.Control required type='text' placeholder='' name='name' id='name' value={data.name} onChange={(e) => handleChange(e, 'name')}></Form.Control>
                     </FormGroup>
                   </Col>
                   <Col md={6}>
                     <FormGroup md={5}>
-                      <FormLabel>Sub Title </FormLabel>
-                      <Form.Control type='text' placeholder='' name='subTitle' id='subTitle' value={data.subTitle} onChange={(e) => handleChange(e, 'subTitle')}></Form.Control>
+                      <FormLabel>Designation *</FormLabel>
+                      <Form.Control type='text' placeholder='' name='designation' id='designation' value={data.designation} onChange={(e) => handleChange(e, 'designation')}></Form.Control>
                     </FormGroup>
                   </Col>
                 </Row>
                 <Row className='p-2'>
                   <Col md={12}>
                     <FormGroup md={5}>
-                      <FormLabel>Content *</FormLabel>
-                      <Form.Control required as='textarea' rows={3} placeholder='Your content' name='content' id='content' value={data.content} onChange={(e) => handleChange(e, 'content')}></Form.Control>
+                      <FormLabel>Review *</FormLabel>
+                      <Form.Control required as='textarea' rows={3} placeholder='Your content' name='review' id='review' value={data.review} onChange={(e) => handleChange(e, 'review')}></Form.Control>
                     </FormGroup>
                   </Col>
                 </Row>
                 <Row className='p-2'>
-                  <Col md={6}>
-                    <FormGroup md={5}>
-                      <FormLabel>Category *</FormLabel>
-                      <Form.Control required type='text' placeholder='Enter category' name='category' id='category' value={data.category} onChange={(e) => handleChange(e, 'category')}></Form.Control>
-                    </FormGroup>
-                  </Col>
                   <Col md={4}>
                     <FormGroup md={5}>
                       <FormLabel>Image</FormLabel>
@@ -169,27 +160,26 @@ const Blog = () => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => saveEditedPost(data)}>
+          <Button variant="primary" onClick={() => saveEditedReview(data)}>
             Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
       <Container xs={6}>
         <Row xs={1} md={2}>
-        {userposts.map((data) =>
+        {reviews.map((data) =>
           <Col>
           <Card key={data.id} className='m-3 shadow-lg' xs={3}>
             <Card.Body>
               {user.username !== null && <div className='d-flex justify-content-end'>
-                <FaEdit className='m-2' size={20} onClick={() => handleEditPost(data)} />
-                <FaTrashAlt className='m-2' size={20} onClick={() => deletePost(data._id)} />
+                <FaEdit className='m-2' size={20} onClick={() => handleEditReview(data)} />
+                <FaTrashAlt className='m-2' size={20} onClick={() => deleteReview(data._id)} />
               </div>}
-              <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{data.title}</Card.Header>
+              <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{data.name}</Card.Header>
               {data.image_location !== '' && <Card.Img variant='top' src={BASE_URL + '/uploads/' + data.image_location} />}
-              <Card.Title className='mt-2'>{data.subTitle}</Card.Title>
-              <Card.Text style={{ 'whiteSpace': 'pre-wrap', 'overflow': 'hidden', 'textOverflow': 'ellipsis' }}>{data.content}</Card.Text>
+              <Card.Title className='mt-2'>{data.designation}</Card.Title>
+              <Card.Text style={{ 'whiteSpace': 'pre-wrap', 'overflow': 'hidden', 'textOverflow': 'ellipsis' }}>{data.review}</Card.Text>
               <Card.Footer className="d-flex text-muted" style={{ justifyContent: 'space-between' }}><div>{getAge(data.published_date)}</div>
-                <div>#{data.category}</div>
                 <div>{data.publisher}</div>
               </Card.Footer>
             </Card.Body>
@@ -203,4 +193,4 @@ const Blog = () => {
   )
 }
 
-export default Blog
+export default Review

@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import {Link} from 'react-router-dom';
 import { logout, isLoggedIn } from './services/user-service';
 import { useState, useEffect } from 'react';
-import userContext from '../context/posts/UserContext';
+import userContext from '../context/users/UserContext';
 import logo from '../../src/images/logo/Asset.png';
 
 const UserButton = (props) =>{

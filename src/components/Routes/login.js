@@ -4,7 +4,7 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginService } from '../services/user-service';
 import { ToastContainer } from 'react-toastify';
-import userContext from '../../context/posts/UserContext';
+import userContext from '../../context/users/UserContext';
 import {Spinner} from 'react-bootstrap';
 
 const Login = (props) => {

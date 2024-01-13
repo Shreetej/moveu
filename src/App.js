@@ -11,6 +11,7 @@ import Blog from './components/Routes/blog/blog';
 import Posts from './components/Routes/user/Blog';
 import User from './components/Routes/user/User';
 import Password from './components/Routes/user/Password';
+import Review from './components/Routes/reviews/review';
 import Main from './components/main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer';
@@ -24,7 +25,8 @@ import {
 import UserDashboard from './components/Routes/user/userDashboard';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import PostState from './context/posts/postState';
-import UserState from './context/posts/UserState';
+import UserState from './context/users/UserState';
+import ReviewState from './context/reviews/ReviewState';
 
 function App() {
 
@@ -45,6 +47,7 @@ function App() {
       {/* <Navigation/> */}
       <UserState>
         <PostState>
+          <ReviewState>
           <Router>
             <Main />
             <ToastContainer position='top-center' />
@@ -63,11 +66,13 @@ function App() {
                   <Route path='/user/dashboard/users' element={<User />} />
                   <Route path='/user/dashboard/posts' element={<Posts />} />
                   <Route path='/user/dashboard/password' element={<Password />} />
+                  <Route path='/user/dashboard/reviews' element={<Review/>}/>
                 </Route>
               </Route>
             </Routes>
             <Footer/>
           </Router>
+          </ReviewState>
         </PostState>
       </UserState>
     </div>

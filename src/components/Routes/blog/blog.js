@@ -5,7 +5,7 @@ import postContext from '../../../context/posts/postContext';
 import AddPost from './addPost';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import Modal from 'react-bootstrap/Modal';
-import userContext from '../../../context/posts/UserContext';
+import userContext from '../../../context/users/UserContext';
 import { addImage } from '../../services/user-service';
 import { BASE_URL } from '../../services/helper';
 import Sidebar from '../../Sidebar/sidebar';
@@ -109,12 +109,8 @@ const Blog = () => {
       return posts.map(post =>
         <Card key={post.id} className='m-3 shadow-lg' md={3}>
           <Card.Body>
-            {/* {user!== null && <div className='d-flex justify-content-end'>
-              <FaEdit className='m-2' size={20} onClick={() => handleEditPost(post)} />
-              <FaTrashAlt className='m-2' size={20} onClick={() => deletePost(post._id)} />
-            </div>} */}
             <Card.Header style={{ backgroundColor: '#302c2c', color: 'white' }}>{post.title}</Card.Header>
-            {post.image_location !== '' && <Card.Img variant='top' src={BASE_URL+'/posts/upload/' + post.image_location} />}
+            {post.image_location !== '' && <Card.Img variant='top' src={BASE_URL+'/uploads/' + post.image_location} />}
             <Card.Title className='mt-2'>{post.subTitle}</Card.Title>
             <Card.Text style={{ 'whiteSpace': 'pre-wrap', 'overflow': 'hidden', 'textOverflow': 'ellipsis' }}>{post.content}</Card.Text>
             <Card.Footer className="d-flex text-muted" style={{ justifyContent: 'space-between' }}><div>{getAge(post.published_date)}</div>

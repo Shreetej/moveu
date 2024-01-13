@@ -1,7 +1,7 @@
 import { React, useContext, useState } from 'react'
 import { Form, Row, Col, FormGroup, FormLabel, Container } from 'react-bootstrap'
 import { ChangePassword} from '../../services/user-service';
-import userContext from '../../../context/posts/UserContext';
+import userContext from '../../../context/users/UserContext';
 
 const Password = () => {
 

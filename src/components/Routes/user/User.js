@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import { Accordion, Button, Container, Form, Modal, Row, Col, FormGroup, FormLabel } from 'react-bootstrap'
 import { GetUsers,ResetUserPassword} from '../../services/user-service'
-import userContext from '../../../context/posts/UserContext'
+import userContext from '../../../context/users/UserContext'
 import AddUser from './addUser'
 
 const getUsers = async (setusers, user) => {

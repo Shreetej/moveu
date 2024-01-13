@@ -91,7 +91,7 @@ export const GetBlog =()=>{
  
 export const GetPostImage =(imagepath)=>{
     return myAxios
-        .get('/posts/upload/'+imagepath)
+        .get('posts/upload/'+imagepath)
         .then((response)=>{
             console.log(response.data)
             return response.data;
@@ -104,6 +104,8 @@ export const GetPostImage =(imagepath)=>{
 
 export const addImage= (file)=>{
     console.log(file)
+    //Pending inserting image to Mongodb
+    //var imageAsBase64 = fs.readFileSync(file, 'base64');
     return myAxios.post('/posts/upload',file,{headers: { "Content-Type": "multipart/form-data" }})
     .then((response)=>{
         console.log(response.data)
@@ -250,3 +252,60 @@ export const getCurrentUser = () => {
     console.log(usertoken);
     return JSON.parse(localStorage.getItem("Authorization"));
 };
+
+export const getReviews = () =>{
+    return myAxios
+    .get('/reviews/')
+    .then((response)=>{
+        // console.log(response.data)
+        // toast.success("Your Enquiry is submitted successfully: "+response.data.data._id)
+        return response.data;
+    })
+    .catch((error)=>{
+        console.log(error)
+        toast(error.response.data);
+    });
+}
+
+export const addReview =(review)=>{
+    console.log(review)
+    return myAxios
+        .post('/reviews/',review)
+        .then((response)=>{
+            console.log(response.data.data._id)
+            toast.success("Review added successfully: "+response.data.data._id)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.data);
+        });
+}
+
+export const editReview =(review)=>{
+    return myAxios
+        .put('/reviews/'+review._id,review)
+        .then((response)=>{
+            console.log(response.data)
+            toast.success(response.data.msg)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.response.data);
+        });
+}
+
+export const deleteReview =(id)=>{
+    return myAxios
+        .delete('/reviews/'+id)
+        .then((response)=>{
+            console.log(response.data)
+            toast.success("Review deleted successfully: "+response.data.data_id)
+            return response.data;
+        })
+        .catch((error)=>{
+            console.log(error)
+            toast(error.response.data);
+        });
+}

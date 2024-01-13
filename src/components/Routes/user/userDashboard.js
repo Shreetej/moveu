@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Row, Col, Container, Nav, Navbar } from 'react-bootstrap'
 import { Link, Outlet } from 'react-router-dom';
-import userContext from '../../../context/posts/UserContext';
+import userContext from '../../../context/users/UserContext';
 
 const UserDashboard = () => {
   const [open, setOpen] = useState(false);
@@ -27,6 +27,9 @@ const UserDashboard = () => {
                   </Nav.Item>}
                 <Nav.Item>
                   <Nav.Link as={Link} className='mx-2 text-light' to='posts'>BLOG</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} className='mx-2 text-light' to='reviews'>REVIEWS</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link as={Link} className='mx-2 text-light' to='password'>Change Password</Nav.Link>
